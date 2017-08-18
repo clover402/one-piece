@@ -32,6 +32,6 @@ F12打开开发者工具，选择Sources面板，会发现有一排按钮【暂�
 ### 格式化代码（Pretty Print）
 Sources Panel选中js文件左下方会有{}按钮，它用于把杂乱的代码重新格式化为漂亮的代码，比如一些已被压缩的 js 文件基本没法看、更没法调试。点一下格式化。
 
-参考资料：
-* [chrome浏览器调试JS代码](http://blog.csdn.net/luckyyulin/article/details/20477695)
-* [Chrome Developer Tools官方文档](https://developers.google.com/chrome-developer-tools/docs/scripts)
+### *参考资料：*
+* *[chrome浏览器调试JS代码](http://blog.csdn.net/luckyyulin/article/details/20477695)*
+* *[Chrome Developer Tools官方文档](https://developers.google.com/chrome-developer-tools/docs/scripts)*
