@@ -4,3 +4,10 @@
 
 ## DOS中复制
 右键选标记 -> 选中文字 -> 回车完成复制
+
+## 批处理隐藏DOS窗口
+1. 新建vbs后缀文件
+2. 编辑该文件输入
+```
+createobject("wscript.shell").run "d:\your\file\path.bat",0
+```
