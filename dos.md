@@ -11,3 +11,7 @@
 ```
 createobject("wscript.shell").run "d:\your\file\path.bat",0
 ```
+
+## 无法使用dir命令
+1. 选择窗口标题，点击右键，选属性
+2. 字体 -> 字体选consolas 保存退出
