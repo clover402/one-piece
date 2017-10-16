@@ -45,9 +45,18 @@ ssh -T git@github.com
 克隆版本库的时候，所使用的远程主机自动被Git命名为origin。如果想用其他的主机名，需要用-o选项指定，这里我指定为github
 git clone -o github https://github.com/XXXXXXXX(仓库的地址)
 
+### 解决冲突
+```
+git pull --rebase #产生了冲突
+vim xxx #查看冲突的文件，修改完成
+git add . #提交解决
+git rebase --continue
+```
+
 ### 常用命令
+```
 git log
 git status
 git remote 查看远程库
 git remote -v 查看
-
+```

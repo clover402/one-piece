@@ -12,3 +12,7 @@ cd exampledocs
 java -jar post.jar *.xml
 ```
 5. 浏览器输入http://localhost:8983/solr/ 进入管理页面
+
+
+## 浏览查看数据
+1. 打开地址http://localhost:8983/solr/core_name/browse
