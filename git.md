@@ -53,8 +53,19 @@ git add . #提交解决
 git rebase --continue
 ```
 
+### 设置用户及保存密码
+```
+git config --global user.name cloverliu
+git config --global user.email 305471598@qq.com
+git config --global credential.helper store #获取改文件
+echo "[credential]" >> .git/config
+echo "    helper = store" >> .git/config
+```
+
+
 ### 常用命令
 ```
+git config --list 查看配置
 git log
 git status
 git remote 查看远程库
