@@ -16,3 +16,16 @@ java -jar post.jar *.xml
 
 ## 浏览查看数据
 1. 打开地址http://localhost:8983/solr/core_name/browse
+
+
+## solr7.0.1
+### 启动服务
+```
+bin\solr.cmd start -V -f #启动服务
+bin\solr.cmd create -c clover #创建core
+```
+### 导入数据
+```
+cd example\exampledocs\
+java -Dtype=text/csv -Durl=http://localhost:8983/solr/core_name/update  -jar post.jar   books.csv
+```
