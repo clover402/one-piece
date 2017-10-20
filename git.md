@@ -57,10 +57,12 @@ git rebase --continue
 ```
 git config --global user.name cloverliu
 git config --global user.email 305471598@qq.com
-git config --global credential.helper store #获取改文件
+git config credential.helper store #设置保存账号密码
 echo "[credential]" >> .git/config
 echo "    helper = store" >> .git/config
+git config credential.helper 'cache --timeout=3600' #也可设置缓存一段时间
 ```
+或者在请求远程地址是带上用户名密码：http://username:password@git.server.url/path/repo
 
 
 ### 常用命令
