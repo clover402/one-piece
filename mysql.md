@@ -35,7 +35,19 @@ mysql> SET PASSWORD = PASSWORD('root');
 如出现ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
 你需要执行两个参数来把mysql默认的密码强度的取消了才行 当然也可以把你的密码复杂度提高也行啊
 ```
-mysql> set global validate_password_policy=0; 
+mysql> set global validate_password_policy=0;
 mysql> set global validate_password_mixed_case_count=2;
 mysql> SET PASSWORD = PASSWORD('root');
 ```
+
+## windows启动mysql5.7
+1. 下载解压
+2. 在解压目录新建data目录
+3. 新建my.ini放入bin目录
+4. 以admin权限运行如下命令
+```
+mysqld --initialize --user=mysql --console //注意有个临时密码， 要记下来
+mysqld -install
+net start MySQL
+```
+
