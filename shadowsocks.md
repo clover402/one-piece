@@ -85,6 +85,6 @@ journalctl | grep ss-server
 ## 安装shadowsocks客户端
 1. 下载解压
 2. 安装运行（windows需要安装.net 4.0)，依据服务器端的配置填写参数
-3. 浏览器安装switchSharp插件配置socks代理
+3. 浏览器安装switchSharp插件配置http代理
 
 
