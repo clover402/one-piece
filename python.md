@@ -1,3 +1,8 @@
+##windows安装扩展
+```
+pip install 路径\文件名.whl
+```
+
 ## CGI编程
 1. 安装apache程序
 ```

@@ -65,6 +65,13 @@ git config credential.helper 'cache --timeout=3600' #也可设置缓存一段时
 或者在请求远程地址是带上用户名密码：http://username:password@git.server.url/path/repo
 
 
+### change-Id丢失
+报错时会有提示，按照提示操作即可，一般如下
+```
+gitdir=$(git rev-parse --git-dir); scp -p -P 29418 harryhe@10.10.96.212:hooks/commit-msg ${gitdir}/hooks/
+git commit --amend
+```
+
 ### 常用命令
 ```
 git config --list 查看配置
