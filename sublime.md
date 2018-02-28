@@ -23,6 +23,30 @@
 }
 ```
 
+## 添加非检索目录
+有时候我们要用 Sublime Text文件检索功能找到特定的文件，如果项目目录下面有 runtime、vendor之类的文件夹则会影响输出结果，再加上这些文件夹中的文件平时不会去改动，我们可以修改配置把这些目录忽略掉。
+在设置-用户中补充：
+```
+"binary_file_patterns":
+[
+    "*.dds",
+    "*.eot",
+    "*.gif",
+    "*.ico",
+    "*.jar",
+    "*.jpeg",
+    "*.jpg",
+    "*.pdf",
+    "*.png",
+    "*.swf",
+    "*.tga",
+    "*.ttf",
+    "*.zip",
+    "/D/source/qw/ResearchReporter/runtime",
+    "/D/source/qw/ResearchReporter/vendor",
+],
+```
+
 ## 常用插件
 1. Alignment  自动对齐
 2. Bracket Highlighter  高亮显示括号、引号、标签
@@ -128,7 +152,7 @@ zend_extension = ext\php_xdebug-2.5.4-7.1-vc14-x86_64.dll
 xdebug.remote_enable=1
 xdebug.remote_handler=dbgp
 xdebug.remote_host=127.0.0.1
-xdebug.remote_port=9999 
+xdebug.remote_port=9999
 ```
 注意：xdebug端口号要与php-cgi的不同
 
@@ -164,3 +188,7 @@ xdebug.remote_port=9999
 curl -b XDEBUG_SESSION=sublime.xdebug -X POST -d 'a1=xxx&a2=xxx' -m 300 url_to_debug
 ```
 
+### 常用快捷键
+* **鼠标中键** 鼠标滚轮也可以选中字符，但不同用鼠标左键选择的是，他不会跨行选择，而是直接矩形选择。
+* **Ctrl+K+B** 关闭开启左侧文件浏览区
+* **Ctrl+shift+T** 恢复已关闭的标签

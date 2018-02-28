@@ -64,3 +64,36 @@ public function loginByAccessToken($token, $type)
 
 * [login](http://blog.csdn.net/a553181867/article/details/50987388)
 * [RESTFul API](http://blog.csdn.net/u012979009/article/details/52136672)
+
+### ActiveRecord
+1. 联表查询
+在model中增加方法
+```
+public function getComUniCode()
+{
+    return $this->hasOne(ComBasicInfo::className(), ['com_uni_code' => 'com_uni_code']);
+}
+```
+调用时在where方法后加 with('comUniCode') 即可
+2. 联表时增加被关联表的条件
+```
+$customers = Customer::find()->limit(100)->with([
+    'orders' => function($query) {
+        $query->andWhere('subtotal>100');
+    },
+])->all();
+```
+3. 多表联表查询
+在model中增加方法
+```
+public function getAcquisition()
+{
+    return $this->hasOne(ComAssetAcquisition::className(), ['seq'=>'trade_related_id'])
+       ->viaTable(
+            ComAssetTraderelated::tableName(),
+            ['trade_main_id'=>'qhqm_seq'],
+            function($query){
+              $query->onCondition(['trade_related_name'=>ComAssetAcquisition::tableName()]);
+            });
+}
+```
