@@ -1,0 +1,43 @@
+## **git**
+File -> Settings -> Version Control -> Git
+Make sure SSH executable is set to “Native.” (If already so, switch to “Built-in,” apply it, then switch back to “Native.”)
+
+## **GIT快捷键**
+Ctrl + `    弹窗git的快捷操作框
+Ctrl+Alt+A  git add
+Ctrl+K      git commit
+Ctrl+Shift+K git push
+
+
+## **xdebug**
+参考地址：https://blog.csdn.net/sszgg2006/article/details/78181757
+1. **安装xdebug**
+网上下载xdebug的dll文件php_xdebug-2.5.5-5.6-vc11-x86_64.dll(注意xdebug的版本和线程安全类型要完全跟php的保持一致)，拷贝到php的安装目录下的ext目录下,并修改php.ini配置文件，注意以下几行
+```
+xdebug.remote_host= 127.0.0.1
+xdebug.remote_port = 9999
+```
+2. **修改idea xdebug配置**
+文件 -> Settings -> Languages -> PHP -> Debug -> Xdebug
+修改端口设置保持与php.ini中一致
+3. **两种方式：远程浏览器触发 和 idea触发**
+3-1. 远程浏览器触发
+*. idea中Run -> Edit Configurations -> 添加PHP Remote Debug -> 设置Ide key
+*. chrome浏览器安装xdebug的插件设置Ide Key与idea保持一致
+*. 代码设置断点启动debug
+*. 浏览器打开xdebug访问页面
+3-2. idea触发
+*. idea中Run -> Edit Configurations -> 添加PHP Web Application
+*. 设置server和地址
+*. 设置断点启动debug
+
+## **debug快捷键**
+Shift+F9  开始调试
+Ctrl+F8 设置/取消断点
+F8  下一步（不进入方法）
+Shift+F8 跳出方法
+F7  下一步（进入方法）
+F9  跳到下一个断点
+Alt+F8 选中对象可弹出计算表达式
+Shift+F7  断点所在行有多个方法时会弹出选择进入哪个方法
+Ctrl+F12 结束调试

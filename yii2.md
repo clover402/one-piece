@@ -97,3 +97,17 @@ public function getAcquisition()
             });
 }
 ```
+
+### extension
+1. 安装扩展
+在vendor\yiisoft\extensions.php文件最后添加如下内容
+```
+'miloschuman/yii2-highcharts-widget' =>
+        array (
+          'name' => 'miloschuman/yii2-highcharts-widget',
+          'version' => '5.0.2',
+          'alias' => array (
+             '@miloschuman/highcharts' => $vendorDir . '/miloschuman/yii2-highcharts-widget/src',
+          ),
+    ),
+```
