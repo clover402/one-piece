@@ -72,6 +72,10 @@ gitdir=$(git rev-parse --git-dir); scp -p -P 29418 harryhe@10.10.96.212:hooks/co
 git commit --amend
 ```
 
+### 恢复删除文件
+git reset HEAD somefile
+git checkout -- somefile
+
 ### 常用命令
 ```
 git config --list 查看配置
