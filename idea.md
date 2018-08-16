@@ -52,5 +52,40 @@ xdebug.remote_port = 9999
 * Ctrl+Shift+N  搜索所有文件
 * Ctrl+Shift+Alt+N 搜索标识
 * Alt+左右  tab切换
-* Ctrl+Shift+V 打开至少5条的粘贴板
+* Ctrl+Shift+V 打开至少5条的粘贴板、
+* Ctrl+Alt+S 弹出settings对话框
 
+## **Live Template**
+### 参考文档：https://www.jetbrains.com/help/idea/using-live-templates.html
+### 默认模板
+1. fori   for (int i = 0; i < ; i++)
+2. inn    if( xxx != null)
+3. ifn    if( xxx == null)
+### 自定义模板
+1. 自定义Settings -> Editor -> LiveTemplates -> +  -> 设置作用的语言（java）、快捷输入的code和对应的完整代码块
+2. 带占位符
+```
+<pfs>
+----------
+private final static String $varName$  = "$var$";
+```
+3. 高级语法-函数
+```
+<log>
+---------
+/** logger */
+private static final Logger logger = LoggerFactory.getLogger($CLASS$.class);
+```
+选择变量占位符$CLASS$, 点Edit variables, 设置Expression为className()函数，使用log生成代码块是会自动获取类名并填充$CLASS$变量
+
+```
+<pv>
+---------
+/**
+ * $END$
+ */
+@AutoWired(required = false)
+private $TYPE$ $NAME$;
+```
+然后设置$TYPE$的Expression为 clipboard()函数：返回当前粘贴板的字符串
+设置$NAME$的Expression为 decapitalize()函数：输入的字符串首字母为小写
