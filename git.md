@@ -76,6 +76,12 @@ git commit --amend
 git reset HEAD somefile
 git checkout -- somefile
 
+
+### 恢复到到之前的某个节点
+git log #查看节点列表
+git reset commit-id #恢复到某个接口
+(该操作只会清楚本地没有提交成功的commit内容，不会影响以及修改的文件)
+
 ### 常用命令
 ```
 git config --list 查看配置

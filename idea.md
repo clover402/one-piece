@@ -48,3 +48,11 @@ Alt+Enter 选择类名自动引入包，选择接口可以自动生成实现类
 Ctrl+w 选中单词，范围一步一步扩大
 Tab 缩进
 Shift+Tab 反缩进
+Ctrl+N 搜索类
+Ctrl+Shift+N  搜索所有文件
+Ctrl+Shift+Alt+N 搜索标识
+Alt+左右  tab切换
+Ctrl+Shift+V 打开至少5条的粘贴板
+
+## **常用自动补全**
+1. inn  if( xxx != null )
