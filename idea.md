@@ -1,4 +1,4 @@
-## **git**
+## **GIT**
 File -> Settings -> Version Control -> Git
 Make sure SSH executable is set to “Native.” (If already so, switch to “Built-in,” apply it, then switch back to “Native.”)
 
@@ -64,12 +64,16 @@ xdebug.remote_port = 9999
 ### 自定义模板
 1. 自定义Settings -> Editor -> LiveTemplates -> +  -> 设置作用的语言（java）、快捷输入的code和对应的完整代码块
 2. 带占位符
+* $END$ 表示最后一个占位符
+* $SELECTIONS$
 ```
 <pfs>
 ----------
 private final static String $varName$  = "$var$";
 ```
 3. 高级语法-函数
+
+* getClass()
 ```
 <log>
 ---------
@@ -78,6 +82,7 @@ private static final Logger logger = LoggerFactory.getLogger($CLASS$.class);
 ```
 选择变量占位符$CLASS$, 点Edit variables, 设置Expression为className()函数，使用log生成代码块是会自动获取类名并填充$CLASS$变量
 
+* clipboard()/decapitalize()
 ```
 <pv>
 ---------
@@ -88,4 +93,6 @@ private static final Logger logger = LoggerFactory.getLogger($CLASS$.class);
 private $TYPE$ $NAME$;
 ```
 然后设置$TYPE$的Expression为 clipboard()函数：返回当前粘贴板的字符串
-设置$NAME$的Expression为 decapitalize()函数：输入的字符串首字母为小写
+设置$NAME$的Expression为decapitalize(TYPE)函数：输入的字符串首字母为小写
+勾选后面的skip，这样Tab就可以直接到下一个占位符
+
