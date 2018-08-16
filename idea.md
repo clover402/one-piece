@@ -32,27 +32,25 @@ xdebug.remote_port = 9999
 *. 设置断点启动debug
 
 ## **debug快捷键**
-Shift+F9  开始调试
-Ctrl+F8 设置/取消断点
-F8  下一步（不进入方法）
-Shift+F8 跳出方法
-F7  下一步（进入方法）
-F9  跳到下一个断点
-Alt+F8 选中对象可弹出计算表达式
-Shift+F7  断点所在行有多个方法时会弹出选择进入哪个方法
-Ctrl+F12 结束调试
+* Shift+F9  开始调试
+* Ctrl+F8 设置/取消断点
+* F8  下一步（不进入方法）
+* Shift+F8 跳出方法
+* F7  下一步（进入方法）
+* F9  跳到下一个断点
+* Alt+F8 选中对象可弹出计算表达式
+* Shift+F7  断点所在行有多个方法时会弹出选择进入哪个方法
+* Ctrl+F12 结束调试
 
 ## **通用快捷键**
-Shift+F6  重命名
-Alt+Enter 选择类名自动引入包，选择接口可以自动生成实现类
-Ctrl+w 选中单词，范围一步一步扩大
-Tab 缩进
-Shift+Tab 反缩进
-Ctrl+N 搜索类
-Ctrl+Shift+N  搜索所有文件
-Ctrl+Shift+Alt+N 搜索标识
-Alt+左右  tab切换
-Ctrl+Shift+V 打开至少5条的粘贴板
+* Shift+F6  重命名
+* Alt+Enter 选择类名自动引入包，选择接口可以自动生成实现类
+* Ctrl+w 选中单词，范围一步一步扩大
+* Tab 缩进
+* Shift+Tab 反缩进
+* Ctrl+N 搜索类
+* Ctrl+Shift+N  搜索所有文件
+* Ctrl+Shift+Alt+N 搜索标识
+* Alt+左右  tab切换
+* Ctrl+Shift+V 打开至少5条的粘贴板
 
-## **常用自动补全**
-1. inn  if( xxx != null )
