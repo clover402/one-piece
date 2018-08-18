@@ -62,8 +62,9 @@ xdebug.remote_port = 9999
 2. inn    if( xxx != null)
 3. ifn    if( xxx == null)
 ### 自定义模板
-1. 自定义 Settings -> Editor -> LiveTemplates -> +  -> 设置作用的语言（java）、快捷输入的code和对应的完整代码块
-2. 变量
+1. **自定义**
+Settings -> Editor -> LiveTemplates -> +  -> 设置作用的语言（java）、快捷输入的code和对应的完整代码块
+2. **变量**
 $var$ 两个美元符号夹起来的表示表里，有以下两个系统内置变量，变量可为占位符
 Tab键可以切到下一个变量位置
 * $END$ 表示最后一个占位符
@@ -73,7 +74,8 @@ Tab键可以切到下一个变量位置
 ----------
 private final static String $varName$  = "$var$";
 ```
-3. 高级用法-函数
+3. **高级用法-函数**
+函数参考文档 https://www.jetbrains.com/help/idea/2016.3/live-template-variables.html
 
 * getClass()
 ```
@@ -85,6 +87,10 @@ private static final Logger logger = LoggerFactory.getLogger($CLASS$.class);
 选择变量占位符$CLASS$, 点Edit variables, 设置Expression为className()函数，使用log生成代码块是会自动获取类名并填充$CLASS$变量
 
 * clipboard()/decapitalize()
+设置$TYPE$的Expression为 clipboard()函数：返回当前粘贴板的字符串
+设置$NAME$的Expression为decapitalize(TYPE)函数：输入的字符串首字母为小写
+勾选后面的[skip if defined]选项，这样Tab就可以直接到下一个占位符
+
 ```
 <pv>
 ---------
@@ -94,12 +100,19 @@ private static final Logger logger = LoggerFactory.getLogger($CLASS$.class);
 @AutoWired(required = false)
 private $TYPE$ $NAME$;
 ```
-然后设置$TYPE$的Expression为 clipboard()函数：返回当前粘贴板的字符串
-设置$NAME$的Expression为decapitalize(TYPE)函数：输入的字符串首字母为小写
-勾选后面的[skip if defined]选项，这样Tab就可以直接到下一个占位符
+4. **超级函数groovyScript()**
 
-* 更多函数参考 https://www.jetbrains.com/help/idea/2016.3/live-template-variables.html
+* groovyScritpt可以执行一段代码实现非常复杂的字符串处理功能
+* 语法：groovyScript("code", p1, p2...)
+  code: 一段代码/代码的绝对路径
+  参数：1个或多个，会绑定到_1,_2,_3..._n, 在code中使用
+* 示例：
 
-4. 导入导出Live Template
+```
+decapitalize(groovyScript("_1.tokenize('.')[-1]", clipboard()))
+groovyScript("'\"' + _1.collect { it + ' = [\" + ' + it + ' + \"]'}.join(', ') + '\"'", methodParameters())
+```
+5. **导入导出Live Template**
+
 * File -> Export Settings -> choose [Live Templates] -> Input path -> ok
 * File -> Import Settings -> choose File -> ok
