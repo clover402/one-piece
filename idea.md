@@ -10,7 +10,7 @@ Ctrl+Shift+K git push
 
 
 ## **xdebug**
-参考地址：https://blog.csdn.net/sszgg2006/article/details/78181757
+参考文档：https://blog.csdn.net/sszgg2006/article/details/78181757
 1. **安装xdebug**
 网上下载xdebug的dll文件php_xdebug-2.5.5-5.6-vc11-x86_64.dll(注意xdebug的版本和线程安全类型要完全跟php的保持一致)，拷贝到php的安装目录下的ext目录下,并修改php.ini配置文件，注意以下几行
 ```
@@ -62,16 +62,18 @@ xdebug.remote_port = 9999
 2. inn    if( xxx != null)
 3. ifn    if( xxx == null)
 ### 自定义模板
-1. 自定义Settings -> Editor -> LiveTemplates -> +  -> 设置作用的语言（java）、快捷输入的code和对应的完整代码块
-2. 带占位符
+1. 自定义 Settings -> Editor -> LiveTemplates -> +  -> 设置作用的语言（java）、快捷输入的code和对应的完整代码块
+2. 变量
+$var$ 两个美元符号夹起来的表示表里，有以下两个系统内置变量，变量可为占位符
+Tab键可以切到下一个变量位置
 * $END$ 表示最后一个占位符
-* $SELECTIONS$
+* $SELECTION$ 用于环绕模板，选中一段代码，Ctrl+Alt+T会出来所有包含$SELECTION$的Live Template，选择一个，则选中的内容会替换$SELECTION$变量生成Live Template的内容
 ```
 <pfs>
 ----------
 private final static String $varName$  = "$var$";
 ```
-3. 高级语法-函数
+3. 高级用法-函数
 
 * getClass()
 ```
@@ -94,5 +96,10 @@ private $TYPE$ $NAME$;
 ```
 然后设置$TYPE$的Expression为 clipboard()函数：返回当前粘贴板的字符串
 设置$NAME$的Expression为decapitalize(TYPE)函数：输入的字符串首字母为小写
-勾选后面的skip，这样Tab就可以直接到下一个占位符
+勾选后面的[skip if defined]选项，这样Tab就可以直接到下一个占位符
 
+* 更多函数参考 https://www.jetbrains.com/help/idea/2016.3/live-template-variables.html
+
+4. 导入导出Live Template
+* File -> Export Settings -> choose [Live Templates] -> Input path -> ok
+* File -> Import Settings -> choose File -> ok
