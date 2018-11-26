@@ -18,3 +18,25 @@ java -Xmx1024M -Xms1024M -jar mod_test/jars/minecraft_server.1.12.2.jar nogui
 set PYTHONIOENCODING=UTF-8
 ```
 7. 下载并安装eclipse，复制mod_test/eclipse的完整路径，运行eclipse，以之前复制的地址打开workspace即可
+
+
+## 程序挂起到后台
+ctrl+z
+bg %1
+
+## alias永久生效
+修改~/.bashrc
+增加 alias la='ll -a'
+保存 source ~/.bashrc
+
+## nginx
+nginx -t 测试配置文件
+nginx -c /etc/nginx/nginx.conf 启动[如未修改配置文件路径可以不需要]
+nginx -s reload 重新加载配置文件
+ps -ef | grep nginx
+kill -QUIT pid  结束进程
+
+#HTTPie
+$ source .venv/bin/activate
+$ pip install httpie
+$ http GET localhost:8000/images

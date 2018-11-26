@@ -1,0 +1,11 @@
+## jenkins
+### 搭建jenkins环境
+1. 如未安装java需要安装 yum -y install java-1.8.0-openjdk*
+2. 安装tomcat，下载解压即可，到bin目录下运行
+3. 下载安装jenkins
+    wget https://pkg.jenkins.io/redhat-stable/jenkins-2.121.3-1.1.noarch.rpm
+    rpm -ivh jenkins-2.7.3-1.1.noarch.rpm
+4. yum -y install apache-maven
+5. 设置端口vim /etc/sysconfig/jenkins，修改为需要的端口
+6. service jenkins start启动服务
+7. /var/lib/jenkins/secrets/initialAdminPassword

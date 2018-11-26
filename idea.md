@@ -1,8 +1,12 @@
-## **GIT**
+## **推荐插件**
+* Alibaba Java Coding Guidelines 阿里巴巴JAVA编码规约
+* IDE Features Trainer 帮助使用者更好的熟悉和掌握IDE
+
+## **GIT插件开启**
 File -> Settings -> Version Control -> Git
 Make sure SSH executable is set to “Native.” (If already so, switch to “Built-in,” apply it, then switch back to “Native.”)
 
-## **GIT快捷键**
+## **GIT插件快捷键**
 Ctrl + `    弹窗git的快捷操作框
 Ctrl+Alt+A  git add
 Ctrl+K      git commit
@@ -54,6 +58,9 @@ xdebug.remote_port = 9999
 * Alt+左右  tab切换
 * Ctrl+Shift+V 打开至少5条的粘贴板、
 * Ctrl+Alt+S 弹出settings对话框
+* Ctrl+shift+U 选中的内容大小写切换
+* Ctrl+E 最近打开的文件
+* Ctrl+Q 显示详细的函数说明
 
 ## **Live Template**
 ### 参考文档：https://www.jetbrains.com/help/idea/using-live-templates.html

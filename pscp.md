@@ -17,5 +17,5 @@ Fatal: Disconnected: No supported authentication methods available (server sent:
 
 4. 命令示例
 ```
-pscp -C -P 9527  -i C:\Users\yliu.abcft\.ssh\putty-private.ppk yliu@120.26.90.111:/home/yliu/raa36.log  E:\Download
+pscp -C -P 9527  -i C:\Users\yliu.abcft\.ssh\putty-private.ppk yliu@120.26.90.111:/home/yliu/service-filing-1.0.0.jar  E:\Download
 ```
