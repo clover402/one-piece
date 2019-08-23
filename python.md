@@ -124,3 +124,13 @@ if __name__ == '__main__':
     pass
 ```
 ![结果](http://ww3.sinaimg.cn/mw690/7178f37ejw1esbukssjmjj20e90a5aax.jpg)
+
+
+## pip2报错unknown encoding: cp65001
+set PYTHONIOENCODING=UTF-8 然后再运行
+
+## pip下载报错
+修改镜像
+pip install flask -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
+
+##

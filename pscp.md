@@ -19,3 +19,6 @@ Fatal: Disconnected: No supported authentication methods available (server sent:
 ```
 pscp -C -P 9527  -i C:\Users\yliu.abcft\.ssh\putty-private.ppk yliu@120.26.90.111:/home/yliu/service-filing-1.0.0.jar  E:\Download
 ```
+```
+pscp -C -P 9527  -i C:\Users\yliu.abcft\.ssh\putty-private.ppk   E:\work\kettle-transformation\mysql-connector-java-5.1.44.jar yliu@120.26.90.111:/home/yliu/
+```

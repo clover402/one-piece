@@ -86,6 +86,13 @@ git reset commit-id #恢复到某个接口
 
 ### push到错的分支
 git reset --hard HEAD   恢复到push前，然后重新push
+git commit --amend
+
+### 从当前节点创建分支
+git checkout -b temp
+
+
+
 
 ### 常用命令
 ```
@@ -95,3 +102,4 @@ git status
 git remote 查看远程库
 git remote -v 查看
 ```
+

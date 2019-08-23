@@ -109,9 +109,15 @@ UUID()
 MD5()
 SHA1()
 IN ANY ALL EXISTS【判断子查询是否存在】 --子查询
+WITH person_tom(F1,F2,F3) AS
+(
+SELECT FAge,FName,FSalary FROM T_Person
+WHERE FName='TOM'
+) select * from tbname where FAge=person_tom.F1;   --定义子查询
 ```
 
 ## 索引
+索引中如果积累的大量碎片会影响速度，需要重建索引
 ```
 create index indexName on tbname(fieldname); --创建索引
 ```
@@ -140,4 +146,25 @@ _代表一个字符
 1. 性能方面： char > varchar > text
 2. where不要使用1=1 会导致无法使用索引，影响性能
 3. DISTINCT是对整个结果集进行数据重复抑制的，而不是针对每一个列
+4. where字句中子查询放在最前面
+5. 不要使用select *
+6. 用where字句替换having
+7. exists替代in
+8. 表连接优于exists
+9. 避免索引列的计算
+10. 避免隐式类型转换
+11. null出现在聚合函数中会被忽略
 
+
+## 批量更新字符串排序规则
+```
+SELECT CONCAT('ALTER TABLE `', table_name, '` MODIFY `', column_name, '` ', DATA_TYPE, '(', CHARACTER_MAXIMUM_LENGTH, ') CHARACTER SET UTF8 COLLATE utf8_general_ci',  ';')
+FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = 'pim_dev' and TABLE_NAME like "file_%" and DATA_TYPE='varchar' and COLLATION_NAME='utf8_unicode_ci';
+```
+
+
+## COLLATE
+1. COLLATE通常是和数据编码（CHARSET）相关的，一般来说每种CHARSET都有多种它所支持的COLLATE，并且每种CHARSET都指定一种COLLATE为默认值。例如Latin1编码的默认COLLATE为latin1_swedish_ci，GBK编码的默认COLLATE为gbk_chinese_ci，utf8mb4编码的默认值为utf8mb4_general_ci。
+2. 这里顺便讲个题外话，mysql中有utf8和utf8mb4两种编码，在mysql中请大家忘记utf8，永远使用utf8mb4。这是mysql的一个遗留问题，mysql中的utf8最多只能支持3bytes长度的字符编码，对于一些需要占据4bytes的文字，mysql的utf8就不支持了，要使用utf8mb4才行。
+很多COLLATE都带有_ci字样，这是Case Insensitive的缩写，即大小写无关，也就是说”A”和”a”在排序和比较的时候是一视同仁的。selection * from table1 where field1=”a”同样可以把field1为”A”的值选出来。与此同时，对于那些_cs后缀的COLLATE，则是Case Sensitive，即大小写敏感的。
+3. 在mysql中使用show collation指令可以查看到mysql所支持的所有COLLATE。
