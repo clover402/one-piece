@@ -78,6 +78,16 @@ Found value: 3000
 Found value: ! OK?
 ```  
 以上可看出小括号在正则中的特殊用法。但小括号最基本的用法是表示括号中的内容是一个整体。
+捕获方法还有更高级的用法，通过group数组的方式取捕获的内容存在一定的不可靠性，java还支持给每个组取名，然后通过名称来获取捕获内容  
+```java
+  Pattern AGGREGATED_COLUMN_PATTERN = Pattern.compile("(?<function>\\w+)\\((?<column>[\\w#.]+)\\)");
+  Matcher m = AGGREGATED_COLUMN_PATTERN.matcher(column);
+  if(m.matches()) {
+    return m.group("function");
+  }
+```  
+(?<name>X)	X, as a named-capturing group，通过这种方式就可以给group组起名字了
+
   
 ## 三、替换字符串
 此处的用法基本与匹配是一样的，把匹配到的字符串替换成对应的字符串
@@ -92,8 +102,20 @@ Found value: ! OK?
 ```  
 看源码你会发现其实两种方式是完全一样的，只是String的方法更方便。replaceFirst方法也是一样的。
 
+## 四、分割字符串
+分割字符串的时候也可以用正则表达式，这样能实现一些很强大的功能。可以看下Pattern类split方法的描述
+Splits the given input sequence around matches of this pattern
+```java
+String s = "123\\r\\n456 789";
+String[] arr = s.split("\\s");
+```
+String类中的split方法也是通过Pattern的split方法实现的
+
+## 五、更多用法
+Pattern更详细全面的用法可以参考[java文档](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html)  
+
   
 *参考文档*
 1. <https://www.runoob.com/java/java-regular-expressions.html>
 2. <https://blog.csdn.net/mynamepg/article/details/83110538>
-
+3. <https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html>
