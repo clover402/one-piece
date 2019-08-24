@@ -4,7 +4,7 @@
 
 ## 一、匹配字符串
 &emsp;&emsp;一般使用Pattern.matches(String regex, CharSequence input)方法，该方法返回的是boolean值，这个方法会判断input字符串是否符合设定的regex正则表达式。  
-```
+```java
   String content = "I am noob from runoob.com.";
   String pattern = ".*runoob.*";
   boolean isMatch = Pattern.matches(pattern, content);
@@ -29,18 +29,29 @@
 非换行字符 | . | 除了\r\n任意字符，比较常用 |
 中国手机号 | [\d]{11} | 表示11位数字，后面的大括号中的数字表示前面内容出现的次数,这里是固定11次 |
 大于99的整数 | [\d]{3,} | 表示3位及以上的数字 |
-10个字母以内的单词  | [a-zA-Z]{1,10} | 表示字母出现1到10次 |
+QQ号码  | ^[1-9]\d{4,10}$ | 表示数字出现4到10次 |
 任意单词  | [a-zA-Z]+ | 通配符+表示一次或多次匹配前面的字符或子表达式（>=1） |
 c语言变量命名规范  | [a-zA-Z_]\w* | 以字母或下划线开头，由字母数字下划线构成。其中通配符*表示0次或多次配前面的内容(>=0) |
 URL  | ^((http&#124;https)://)?([\w-]+\.)+[\w-]+(/[\w-./?%&=]*)?$ | 通配符?表示前面的表达式出现0次或1次（0&#124;&#124;1） |
 一个或多个汉字  | ^[\u0391-\uFFE5]+$ | ^在外面表示字符串开始，$表示字符串结束 |
 
 
-&emsp;&emsp;最后一个特殊的\表示转义符，一些特殊符号*.?[](){}|^$\等如果需要作为字符存在则可以在他们前面加\表示该字符。但java中有点特殊的，\本身又要进行转义，所以\d 需要\\\\d表示，\\\\需要\\\\\\\\表示。
+&emsp;&emsp;最后一个特殊的\表示转义符，一些特殊符号*.?[](){}|^$\等如果需要作为字符存在则可以在他们前面加\表示该字符。但java中有点特殊，Java 源代码的字符串中的反斜线被解释为 Unicode 转义或其他字符转义。因此必须在字符串字面值中使用两个反斜线，表示正则表达式受到保护，不被 Java 字节码编译器解释，所以\d 需要\\\\d表示，\\\\需要\\\\\\\\表示。
 
+还有些特殊用法,**贪婪与懒惰** 
+  
+语法 | 说明  
+-|-
+*? | 重复任意次，但尽可能少重复 |
++? | 重复1次或更多次，但尽可能少重复 |
+?? | 重复0次或1次，但尽可能少重复 |
+{n,m}? | 重复n到m次，但尽可能少重复 |
+{n,}? | 重复n次以上，但尽可能少重复 |
+  
+  
 ## 二、捕获提取字符串
 &emsp;&emsp;一般用于从一个字符串中解析出特定的部分，比如表达式的解析等。还有就是爬虫字符串的解析，比如图片url链接url等。Java中使用示例如下  
-```
+```java
   String line = "This order was placed for QT3000! OK?";
   String pattern = "(\\D*)(\\d+)(.*)";
  
@@ -68,8 +79,21 @@ Found value: ! OK?
 ```  
 以上可看出小括号在正则中的特殊用法。但小括号最基本的用法是表示括号中的内容是一个整体。
   
+## 三、替换字符串
+此处的用法基本与匹配是一样的，把匹配到的字符串替换成对应的字符串
+```java
+  Pattern p = Pattern.compile(REGEX);
+  // get a matcher object
+  Matcher m = p.matcher(INPUT); 
+  INPUT = m.replaceAll(REPLACE);
+  //也可以直接用String的replaceAll方法
+  String INPUT = "abc,123,efg";
+  INPUT.replaceAll("\\d","");
+```  
+看源码你会发现其实两种方式是完全一样的，只是String的方法更方便。replaceFirst方法也是一样的。
+
   
 *参考文档*
 1. <https://www.runoob.com/java/java-regular-expressions.html>
-
+2. <https://blog.csdn.net/mynamepg/article/details/83110538>
 
