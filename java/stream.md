@@ -8,8 +8,30 @@ Stream 的另外一大特点是，数据源本身可以是无限的。
 
 ## stream的构成
 通常包括三个基本步骤：
-```
+获取一个数据源 --> 数据转换 --> 执行操作获取想要的结果
+![流管道 (Stream Pipeline) 的构成](https://www.ibm.com/developerworks/cn/java/j-lo-java8streamapi/img001.png)  
+这有点像linux命令中的管道操作符|
+### 数据源
+* Collection: Collection.stream, Collection.parallelStream()
+* 数组: Arrays.stream(T array)
+* BufferedReader: java.io.BufferedReader.lines()
+* Spliterator: java.util.Spliterator
+* 其他
+### Intermedia
+一个流可以后面跟随零个或多个 intermediate 操作。其目的主要是打开流，做出某种程度的数据映射/过滤，然后返回一个新的流，交给下一个操作使用。
+### Terminal
+一个流只能有一个 terminal 操作，当这个操作执行后，流就被使用“光”了，无法再被操作。所以这必定是流的最后一个操作。
 
-graph TD
-A[获取一个数据源] --> B[数据转换] --> C[执行操作获取想要的结果]
+## stream的使用
+### 构造stream的常见方法
+```java
+// 1. Individual values
+Stream stream = Stream.of("a", "b", "c");
+// 2. Arrays
+String [] strArray = new String[] {"a", "b", "c"};
+stream = Stream.of(strArray);
+stream = Arrays.stream(strArray);
+// 3. Collections
+List<String> list = Arrays.asList(strArray);
+stream = list.stream();
 ```
