@@ -89,6 +89,19 @@ filter 对原始 Stream 进行某项测试，通过测试的元素被留下来�
 对stream进行排序，它比数组的排序更强之处在于你可以首先对 Stream 进行各类 map、filter、limit、skip 甚至 distinct 来减少元素数量后，再排序，这能帮助程序明显缩短执行时间。
 有两种排序，带参数的和不带参数的。不带参数的是按照natural order进行排序，对于复杂的对象需要实现Comparable接口来使用。带参数的则在参数中定义排序规则。  
 **定义：Stream<T> sorted(Comparator<? super T> comparator);**  
-说明：
+说明：主要是实现这样一个方法int compare(T o1, T o2);两个同类型的方法返回一个比较的数值
+```java
+List<Person> persons = new ArrayList();
+ for (int i = 1; i <= 5; i++) {
+ Person person = new Person(i, "name" + i);
+ persons.add(person);
+ }
+List<Person> personList2 = persons.stream().limit(2).sorted((p1, p2) -> p1.getName().compareTo(p2.getName())).collect(Collectors.toList());
+System.out.println(personList2);
+```
+
+#### 5.distinct
+去重
+
 
 
