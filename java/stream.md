@@ -43,7 +43,9 @@ IntStream、LongStream、DoubleStream。当然我们也可以用 Stream<Integer>
 
 ### Intermedia
 #### 1.map
-作用就是把 input Stream 的每一个元素，映射成 output Stream 的另外一个元素
+作用就是把 input Stream 的每一个元素，映射成 output Stream 的另外一个元素  
+**定义：<R> Stream<R> map(Function<? super T, ? extends R> mapper);**  
+说明：函数或lambda入参T及其父类，返回值R及其子类
 ```java
 //转换大写
 List<String> output = wordList.stream().
@@ -59,7 +61,9 @@ collect(Collectors.toList());
 
 #### 2.flatMap
 map 生成的是个 1:1 映射，每个输入元素，都按照规则转换成为另外一个元素。还有一些场景，是一对多映射关系的，这时需要 flatMap。
-flatMap 把 input Stream 中的层级结构扁平化，就是将最底层元素抽出来放到一起，最终 output 的新 Stream 里面已经没有 List 了，都是直接的数字。
+flatMap 把 input Stream 中的层级结构扁平化，就是将最底层元素抽出来放到一起，最终 output 的新 Stream 里面已经没有 List 了，都是直接的数字。  
+**定义：<R> Stream<R> flatMap(Function<? super T, ? extends Stream<? extends R>> mapper);**  
+说明：函数或者lambda入参是T及其父类，返回值是Stream及其子类
 ```java
 Stream<List<Integer>> inputStream = Stream.of(
  Arrays.asList(1),
@@ -71,5 +75,20 @@ flatMap((childList) -> childList.stream());
 ```
 
 #### 3.filter
+filter 对原始 Stream 进行某项测试，通过测试的元素被留下来生成一个新 Stream。  
+**定义：Stream<T> filter(Predicate<? super T> predicate);**   
+说明：入参T及其父类，返回值布尔值。这是一个断言，通过一个参数，进行逻辑判断最终返回boolean
+```java
+ List<String> output = reader.lines().
+ flatMap(line -> Stream.of(line.split(REGEXP))).
+ filter(word -> word.length() > 0).
+ collect(Collectors.toList()); 
+```
+ 
+#### 4.sorted
+对stream进行排序，它比数组的排序更强之处在于你可以首先对 Stream 进行各类 map、filter、limit、skip 甚至 distinct 来减少元素数量后，再排序，这能帮助程序明显缩短执行时间。
+有两种排序，带参数的和不带参数的。不带参数的是按照natural order进行排序，对于复杂的对象需要实现Comparable接口来使用。带参数的则在参数中定义排序规则。  
+**定义：Stream<T> sorted(Comparator<? super T> comparator);**  
+说明：
 
 
