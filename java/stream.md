@@ -109,6 +109,15 @@ System.out.println(personList2);
 limit返回前面n个元素  
 skip扔掉前面n个元素
 
+
+#### 7.peek
+```java
+Stream<T> peek(Consumer<? super T> action);
+```
+peek方法接收一个Consumer的入参。了解lambda表达式的应该明白Consumer的实现类 应该只有一个方法，该方法返回类型为void。  
+peek接收一个没有返回值的lambda表达式或函数引用，可以做一些输出，外部处理等  
+  
+  
 ### terminal操作
 
 #### 1.max/min/count
@@ -287,15 +296,30 @@ public static <T, D, A>
 这个方法跟groupingBy很相似，但它只能把数据分成两组，true和false  
 
 
-
-#### 4.forEach
+#### 4.forEach  
+```java
+void forEach(Consumer<? super T> action);
+```
+对每个元素执行一系列操作，主要是为了改变原值，影响原list。
 
 #### 5.findFirst
+返回第一个元素或者空（short-circuiting）
 
-#### 6.findAny
+#### 6.findAny  
+对于串行流结果跟findFirst一样，对于并行流返回的是最快处理完的那个线程的数据（short-circuiting）
 
 #### 7.allMatch/anyMatch/noneMatch
 * allMatch：Stream 中全部元素符合传入的 predicate，返回 true
+* anyMatch：Stream 中只要有一个元素符合传入的 predicate，返回 true
+* noneMatch：Stream 中没有一个元素符合传入的 predicate，返回 true  
 
+#### 8.toArray
+返回数组return an array containing the elements of this stream  
+  
+  
 
+参考文档：  
+1. <https://www.ibm.com/developerworks/cn/java/j-lo-java8streamapi/>
+2. <https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#map-java.util.function.Function->
+3. <https://blog.csdn.net/u012706811/article/details/78058291>
 
