@@ -8,7 +8,7 @@ Stream 的另外一大特点是，数据源本身可以是无限的。
 
 ## stream的构成
 通常包括三个基本步骤：
-获取一个数据源 --> 数据转换 --> 执行操作获取想要的结果
+获取一个数据源 --> 数据转换（Intermediate） --> 执行操作获取想要的结果（terminal）
 ![流管道 (Stream Pipeline) 的构成](https://www.ibm.com/developerworks/cn/java/j-lo-java8streamapi/img001.png)  
 这有点像linux命令中的管道操作符|
 ### 数据源
@@ -17,7 +17,7 @@ Stream 的另外一大特点是，数据源本身可以是无限的。
 * BufferedReader: java.io.BufferedReader.lines()
 * Spliterator: java.util.Spliterator
 * 其他
-### Intermedia
+### Intermediate
 一个流可以后面跟随零个或多个 intermediate 操作。其目的主要是打开流，做出某种程度的数据映射/过滤，然后返回一个新的流，交给下一个操作使用。
 ### Terminal
 一个流只能有一个 terminal 操作，当这个操作执行后，流就被使用“光”了，无法再被操作。所以这必定是流的最后一个操作。
@@ -41,7 +41,7 @@ stream = list.stream();
 需要注意的是，对于基本数值型，目前有三种对应的包装类型 Stream：  
 IntStream、LongStream、DoubleStream。当然我们也可以用 Stream<Integer>、Stream<Long> >、Stream<Double>，但是 boxing 和 unboxing 会很耗时，所以特别为这三种基本数值型提供了对应的 Stream。  
 
-### Intermedia操作
+### Intermediate操作
 
 #### 1.map
 作用就是把 input Stream 的每一个元素，映射成 output Stream 的另外一个元素  
@@ -138,11 +138,59 @@ skip扔掉前面n个元素
 ```   
 
 #### 3.collect
-* <R> R collect(Supplier<R> supplier, BiConsumer<R,? super T> accumulator, BiConsumer<R,R> combiner)
+* **<R> R collect(Supplier<R> supplier, BiConsumer<R,? super T> accumulator, BiConsumer<R,R> combiner)**  
 说明：**supplier** - a function that creates a new result container. For a parallel execution, this function may be called multiple times and must return a fresh value each time.  
-**accumulator** - an associative, non-interfering, stateless function for incorporating an additional element into a result  
+ 结果存放容器  
+**accumulator** - an associative, non-interfering, stateless function for incorporating an additional element into a result.  
+ 为结果如何添加到容器的操作  
 **combiner** - an associative, non-interfering, stateless function for combining two values, which must be compatible with the accumulator function  
- 
+多个容器的聚合操作
+```java
+ String concat = stringStream.collect(StringBuilder::new, StringBuilder::append,StringBuilder::append).toString();
+ //等价于上面,这样看起来应该更加清晰
+ String concat = stringStream.collect(() -> new StringBuilder(),(l, x) -> l.append(x), (r1, r2) -> r1.append(r2)).toString();
+ Lists.<Person>newArrayList().stream()
+      .collect(() -> new HashMap<Integer,List<Person>>(),
+          (h, x) -> {
+            List<Person> value = h.getOrDefault(x.getType(), Lists.newArrayList());
+            value.add(x);
+            h.put(x.getType(), value);
+          },
+          HashMap::putAll
+  );
+```
+* **<R,A> R collect(Collector<? super T,A,R> collector)**  
+这个是上面那种的高级用法。Collector接口是使得collect操作强大的终极武器,对于绝大部分操作可以分解为旗下主要步骤,提供初始容器->加入元素到容器->并发下多容器聚合->对聚合后结果进行操作,同时Collector接口又提供了of静态方法帮助你最大化的定制自己的操作,官方也提供了Collectors这个类封装了大部分的常用收集操作.   
+另外CollectorImpl为Collector的实现类,因为接口不可实例化,这里主要完成实例化操作.
+```java
+    //初始容器
+    Supplier<A> supplier();
+    //加入到容器操作
+    BiConsumer<A, T> accumulator();
+    //多容器聚合操作
+    BinaryOperator<A> combiner();
+    //聚合后的结果操作
+    Function<A, R> finisher();
+    //操作中便于优化的状态字段
+    Set<Characteristics> characteristics();
+```
+##### Collectors
+* toList()/toMap()/toSet()/toCollection()  
+创建容器: ArrayList::new  
+加入容器操作: List::add  
+多容器合并: left.addAll(right); return left;  
+聚合后的结果操作: 这里直接返回,因此无该操作,默认为castingIdentity()  
+优化操作状态字段: CH_ID  
+这样看起来很简单,那么对于Map,Set等操作都是类似的实现.
+```java
+public static <T>
+    Collector<T, ?, List<T>> toList() {
+        return new CollectorImpl<>((Supplier<List<T>>) ArrayList::new, List::add,
+                                   (left, right) -> { left.addAll(right); return left; },
+                                   CH_ID);
+    }
+```
+
 
 #### 2.forEach
 
