@@ -41,7 +41,8 @@ stream = list.stream();
 需要注意的是，对于基本数值型，目前有三种对应的包装类型 Stream：  
 IntStream、LongStream、DoubleStream。当然我们也可以用 Stream<Integer>、Stream<Long> >、Stream<Double>，但是 boxing 和 unboxing 会很耗时，所以特别为这三种基本数值型提供了对应的 Stream。  
 
-### Intermedia
+### Intermedia操作
+
 #### 1.map
 作用就是把 input Stream 的每一个元素，映射成 output Stream 的另外一个元素  
 **定义：<R> Stream<R> map(Function<? super T, ? extends R> mapper);**  
@@ -89,7 +90,7 @@ filter 对原始 Stream 进行某项测试，通过测试的元素被留下来�
 对stream进行排序，它比数组的排序更强之处在于你可以首先对 Stream 进行各类 map、filter、limit、skip 甚至 distinct 来减少元素数量后，再排序，这能帮助程序明显缩短执行时间。
 有两种排序，带参数的和不带参数的。不带参数的是按照natural order进行排序，对于复杂的对象需要实现Comparable接口来使用。带参数的则在参数中定义排序规则。  
 **定义：Stream<T> sorted(Comparator<? super T> comparator);**  
-说明：主要是实现这样一个方法int compare(T o1, T o2);两个同类型的方法返回一个比较的数值
+说明：主要是要实现这样一个方法int compare(T o1, T o2);的Comparator类。两个同类型的方法返回一个比较的数值
 ```java
 List<Person> persons = new ArrayList();
  for (int i = 1; i <= 5; i++) {
@@ -108,12 +109,49 @@ System.out.println(personList2);
 limit返回前面n个元素  
 skip扔掉前面n个元素
 
+### terminal操作
 
-#### 7.foreach
+#### 1.max/min/count
+* long count(); 统计数量
+* Optional<T> max(Comparator<? super T> comparator); 返回最大的元素，与排序一样需要传实现了比较接口的类
+* Optional<T> min(Comparator<? super T> comparator); 返回最小的元素
 
-#### 8.findFirst
+#### 2.reduce
+上面的3种都可以通过reduce来实现
+* Optional<T> reduce(BinaryOperator<T> accumulator);
+* T reduce(T identity, BinaryOperator<T> accumulator); 通过一个初始值和一个函数进行计算返回一个值
+```java
+ Integer sum = integers.reduce(0, (a, b) -> a+b);
+ Integer sum = integers.reduce(0, Integer::sum);
+ // 字符串连接，concat = "ABCD"
+ String concat = Stream.of("A", "B", "C", "D").reduce("", String::concat); 
+ // 求最小值，minValue = -3.0
+ double minValue = Stream.of(-1.5, 1.0, -3.0, -2.0).reduce(Double.MAX_VALUE, Double::min); 
+ // 求和，sumValue = 10, 有起始值
+ int sumValue = Stream.of(1, 2, 3, 4).reduce(0, Integer::sum);
+ // 求和，sumValue = 10, 无起始值
+ sumValue = Stream.of(1, 2, 3, 4).reduce(Integer::sum).get();
+ // 过滤，字符串连接，concat = "ace"
+ concat = Stream.of("a", "B", "c", "D", "e", "F").
+ filter(x -> x.compareTo("Z") > 0).
+ reduce("", String::concat);
+```   
 
-#### 8.findAny
+#### 3.collect
+* <R> R collect(Supplier<R> supplier, BiConsumer<R,? super T> accumulator, BiConsumer<R,R> combiner)
+说明：**supplier** - a function that creates a new result container. For a parallel execution, this function may be called multiple times and must return a fresh value each time.  
+**accumulator** - an associative, non-interfering, stateless function for incorporating an additional element into a result  
+**combiner** - an associative, non-interfering, stateless function for combining two values, which must be compatible with the accumulator function  
+ 
+
+#### 2.forEach
+
+#### 3.findFirst
+
+#### 4.findAny
+
+#### 5.allMatch/anyMatch/noneMatch
+* allMatch：Stream 中全部元素符合传入的 predicate，返回 true
 
 
 
