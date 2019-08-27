@@ -175,13 +175,13 @@ skip扔掉前面n个元素
     Set<Characteristics> characteristics();
 ```
 ##### Collectors
-* toList()/toMap()/toSet()/toCollection()  
+* toList()/toSet()/toCollection()  
 创建容器: ArrayList::new  
 加入容器操作: List::add  
 多容器合并: left.addAll(right); return left;  
 聚合后的结果操作: 这里直接返回,因此无该操作,默认为castingIdentity()  
 优化操作状态字段: CH_ID  
-这样看起来很简单,那么对于Map,Set等操作都是类似的实现.
+这样看起来很简单,那么对于toCollection,toSet等操作都是类似的实现.
 ```java
 public static <T>
     Collector<T, ?, List<T>> toList() {
@@ -191,14 +191,39 @@ public static <T>
     }
 ```
 
+* toMap  
+```java
+Collector<T, ?, Map<K,U>> toMap(Function<? super T, ? extends K> keyMapper,  Function<? super T, ? extends U> valueMapper)
+Collector<T, ?, Map<K,U>> toMap(Function<? super T, ? extends K> keyMapper,Function<? super T, ? extends U> valueMapper,
+                                    BinaryOperator<U> mergeFunction)
+Collector<T, ?, M> toMap(Function<? super T, ? extends K> keyMapper, Function<? super T, ? extends U> valueMapper,
+                                BinaryOperator<U> mergeFunction, Supplier<M> mapSupplier)                                    
+```
+实际上只4个参数，另外两种是有默认值的。  
+参数1：keyMapper， 生成键的函数引用或者lambda  
+参数2：valueMapper，生成值的函数引用或者lambda  
+参数3：mergeFunction，a merge function, used to resolve collisions between values associated with the same key.对于重复key的处理函数  
+参数4：mapSupplier，a function which returns a new, empty into which the results will be inserted.放最终结果的容器  
 
-#### 2.forEach
+* joining  
+合并连接字符串，可加分隔符、前缀、后缀
 
-#### 3.findFirst
+* groupingBy  
+groupingBy是toMap的一种高级方式,弥补了toMap对值无法提供多元化的收集操作,比如对于返回Map<T,List<E>>这样的形式toMap就不是那么顺手,那么groupingBy的重点就是对Key和Value值的处理封装  
+```java
+ <T, K, D, A, M extends Map<K, D>>
+ Collector<T, ?, M> groupingBy(Function<? super T, ? extends K> classifier, Supplier<M> mapFactory, Collector<? super T, A, D>  downstream)
+``` 
 
-#### 4.findAny
 
-#### 5.allMatch/anyMatch/noneMatch
+
+#### 4.forEach
+
+#### 5.findFirst
+
+#### 6.findAny
+
+#### 7.allMatch/anyMatch/noneMatch
 * allMatch：Stream 中全部元素符合传入的 predicate，返回 true
 
 
