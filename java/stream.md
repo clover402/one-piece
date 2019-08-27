@@ -101,7 +101,19 @@ System.out.println(personList2);
 ```
 
 #### 5.distinct
-去重
+去重。定义有句描述 according to {@link Object#equals(Object)}。也就是说他是通过这个类的equals方法实现的，如果是自定义类需要重写equals方法，否则所有的对象都不会相等。
+
+
+#### 6.limit/skip
+limit返回前面n个元素  
+skip扔掉前面n个元素
+
+
+#### 7.foreach
+
+#### 8.findFirst
+
+#### 8.findAny
 
 
 
