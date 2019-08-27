@@ -190,7 +190,7 @@ public static <T>
                                    CH_ID);
     }
 ```
-
+  
 * toMap  
 ```java
 Collector<T, ?, Map<K,U>> toMap(Function<? super T, ? extends K> keyMapper,  Function<? super T, ? extends U> valueMapper)
@@ -199,21 +199,92 @@ Collector<T, ?, Map<K,U>> toMap(Function<? super T, ? extends K> keyMapper,Funct
 Collector<T, ?, M> toMap(Function<? super T, ? extends K> keyMapper, Function<? super T, ? extends U> valueMapper,
                                 BinaryOperator<U> mergeFunction, Supplier<M> mapSupplier)                                    
 ```
-实际上只4个参数，另外两种是有默认值的。  
+实际上是4个参数，另外两种是有默认值的。  
 参数1：keyMapper， 生成键的函数引用或者lambda  
 参数2：valueMapper，生成值的函数引用或者lambda  
-参数3：mergeFunction，a merge function, used to resolve collisions between values associated with the same key.对于重复key的处理函数  
-参数4：mapSupplier，a function which returns a new, empty into which the results will be inserted.放最终结果的容器  
+参数3：mergeFunction，a merge function, used to resolve collisions between values associated with the same key.对于重复key的处理函数，如果不传则出现重复值时会抛异常  
+参数4：mapSupplier，a function which returns a new, empty into which the results will be inserted.放最终结果的容器，默认值HashMap::new  
 
 * joining  
-合并连接字符串，可加分隔符、前缀、后缀
+合并连接字符串，可加分隔符、前缀、后缀  
 
 * groupingBy  
-groupingBy是toMap的一种高级方式,弥补了toMap对值无法提供多元化的收集操作,比如对于返回Map<T,List<E>>这样的形式toMap就不是那么顺手,那么groupingBy的重点就是对Key和Value值的处理封装  
+groupingBy直译过来是分组，可以说它是toMap的一种高级方式,弥补了toMap对值无法提供多元化的收集操作,比如对于返回Map<T,List<E>>这样的形式toMap就不是那么顺手,那么groupingBy的重点就是对Key和Value值的处理封装  
 ```java
  <T, K, D, A, M extends Map<K, D>>
  Collector<T, ?, M> groupingBy(Function<? super T, ? extends K> classifier, Supplier<M> mapFactory, Collector<? super T, A, D>  downstream)
 ``` 
+参数1：classifier,a classifier function mapping input elements to keys.对key值的处理,必传  
+参数2：mapFactory,a function which, when called, produces a new empty {@code Map} of the desired type.指定Map的容器具体类型，默认值HashMap::new  
+参数3：downstream,a {@code Collector} implementing the downstream reduction.对Value的收集操作,默认值toList()  
+```java
+Lists.<Person>newArrayList().stream()
+        .collect(Collectors.groupingBy(Person::getType, HashMap::new, Collectors.toList()));
+//因为对值有了操作,因此我可以更加灵活的对值进行转换
+Lists.<Person>newArrayList().stream()
+        .collect(Collectors.groupingBy(Person::getType, HashMap::new, Collectors.mapping(Person::getName,Collectors.toSet())));
+```  
+
+* toConcurrentMap  
+toMap的并非版本。区别在于 toMap 将创建多个中间结果，然后将合并在一起（此类收集器的供应商将被多次调用），而 toConcurrentMap 将创建单个结果，每个线程都会向其投掷结果（此类收集器的供应商只会被调用一次）。  
+toMap 将通过合并多个中间结果在遭遇顺序中在结果Map中插入值（多次调用该收集器的供应商以及组合器）  
+toConcurrentMap 将通过抛出所有元素以任何顺序（未定义）收集元素在公共结果容器（在这种情况下为ConcurrentHashMap）。供应商只召集一次，Accumulator多次召唤，而Combiner永远不召唤。  
+
+* reducing  
+它是针对单个值的收集，其返回结果不是集合家族的类型,而是单一的实体类T
+```java
+<T, U> Collector<T, ?, U> reducing(U identity, Function<? super T, ? extends U> mapper, BinaryOperator<U> op)
+```
+参数1：identify，U类型的初始值，当不传时会用包装类包装T，并给一T值为null的初始值包装类  
+参数2：mapper，对元素值T进行一个转换映射成U类型，当T和U是同类型不需要映射时可不传  
+参数3：op，二元运算，对2个U类型的值计算得到一个U类型的返回值  
+```java
+public static <T> Collector<T, ?, T> reducing(T identity, BinaryOperator<T> op) {
+        return new CollectorImpl<>(
+                boxSupplier(identity),//创建容器
+                (a, t) -> { a[0] = op.apply(a[0], t); },//加入容器
+                (a, b) -> { a[0] = op.apply(a[0], b[0]); return a; },//动容器合并
+                a -> a[0],//聚合后的结果操作
+                CH_NOID);//优化操作状态字段
+    }
+//reducing操作
+final Integer collect = Lists.newArrayList(1, 2, 3, 4, 5)
+        .stream()
+        .collect(Collectors.reducing(0, Integer::sum));    
+//当然Stream也提供了reduce操作
+final Integer collect = Lists.newArrayList(1, 2, 3, 4, 5)
+        .stream().reduce(0, Integer::sum)
+```  
+
+* averagingDouble/Long/Int  
+需要一个mapper函数引用，把对应的元素映射成double/long/int，进行求平均计算
+
+* summingDouble/Long/Int  
+需要一个mapper函数引用，把对应的元素映射成double/long/int,进行求和计算
+
+* counting/maxBy/minBy  
+与stream的count/max/min方法效果一样
+
+* summarizingDouble/Long/Int  
+返回一个包含分析计算全部结果的类（count，sum，max，min，avg=sum/count）  
+
+* mapping  
+感觉跟steam的map效果差不多  
+
+* collectingAndThen  
+Adapts a {@code Collector} to perform an additional finishing transformation.再追加一步操作  
+```java
+List<String> people = people.stream().collect(collectingAndThen(toList(), Collections::unmodifiableList));
+```
+
+* partitioningBy  
+```java
+public static <T, D, A>
+    Collector<T, ?, Map<Boolean, D>> partitioningBy(Predicate<? super T> predicate, Collector<? super T, A, D> downstream)
+```  
+参数1：predicate，断言，执行逻辑返回bool值  
+参数2：downstream，对value的收集容器，可不传，默认值toList()  
+这个方法跟groupingBy很相似，但它只能把数据分成两组，true和false  
 
 
 
