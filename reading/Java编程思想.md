@@ -16,6 +16,6 @@
 * Collection: 集合，一组应用了某种规则的单独元素。List按特定顺序容纳元素，Set不包含任何重复的元素
 * Map：映射，一系列键值对。Map可返回包含自己键的Set，和包含值的List，以及包含键值对的List
 4. Iterator：新迭代器，取代Enumeration
-5. Collections：
+5. Collections：工具类，包含方法max，min，emptyList,copy，subList，unmodifiableCollection，reverse，shuffle，swap，fill，sort，binarySearch等
 
 
