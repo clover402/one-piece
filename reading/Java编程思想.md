@@ -12,4 +12,10 @@
 * BitSet：由二进制位构成的集合，为了保存大量“开-关”信息，最小长度64位  
 * Stack：栈，后进先出
 * Hashtable：哈希表，通过键值指定元素
+3. 新集合：
+* Collection: 集合，一组应用了某种规则的单独元素。List按特定顺序容纳元素，Set不包含任何重复的元素
+* Map：映射，一系列键值对。Map可返回包含自己键的Set，和包含值的List，以及包含键值对的List
+4. Iterator：新迭代器，取代Enumeration
+5. Collections：
+
 
