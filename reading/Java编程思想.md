@@ -51,5 +51,22 @@ class MyObject implements Cloneable {
   }
 }
 ```
+但是如果MyObject的属性包含其他对象，那么这个属性只会浅拷贝，只复制引用，那么对它操作还是会影响原来的值。  
+要解决这个问题，属性对象要先实现clone方法，然后在MyObject里面手动执行属性的clone  
+```java
+public Object clone() {
+  OceanReading o = null;
+  try {
+    o = (OceanReading)super.clone();
+  } catch (CloneNotSupportedException e) {
+    e.printStackTrace();
+  }
+  // Must clone handles:
+  o.depth = (DepthReading)o.depth.clone();
+  o.temperature =
+    (TemperatureReading)o.temperature.clone();
+  return o; // Upcasts back to Object
+}
+```
 
 
