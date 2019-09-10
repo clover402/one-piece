@@ -19,3 +19,20 @@
 5. Collections：工具类，包含方法max，min，emptyList,copy，subList，unmodifiableCollection，reverse，shuffle，swap，fill，sort，binarySearch等
 
 
+## RTTI
+基本用法  
+```java
+Class c = Class.forName("TestClassName");
+// Class c = TestClassName.class
+Class[] interfaces = c.getInterfaces();
+Object o = c.newInstance();
+Class super = c.getSuperclass();
+```
+```java
+//反射
+Method[] m = c.getMethods();
+Constructor[] ctor = c.getConstructors();
+Field[] fields = c.getFields();
+```
+
+
