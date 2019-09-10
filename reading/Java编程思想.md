@@ -35,4 +35,21 @@ Constructor[] ctor = c.getConstructors();
 Field[] fields = c.getFields();
 ```
 
+## 引用
+java中方法参数如果是对象则传的是引用，对引用的修改会修改原对象。如果想避免这个问题就要在方法中先复制原对象然后再操作。
+要实现复制对象需要实现Cloneable接口，重写clone方法，并申明为public
+```java
+class MyObject implements Cloneable {
+  public Object clone() {
+    Object o = null;
+    try {
+      o = super.clone();
+    } catch (CloneNotSupportedException e) {
+      System.out.println("MyObject can't clone");
+    }
+    return o;
+  }
+}
+```
+
 
