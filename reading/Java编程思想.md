@@ -69,4 +69,8 @@ public Object clone() {
 }
 ```
 
+## 多线程
+实现方式：  
+1. 实现runnable接口，实现run方法  
+2. 继承Tread类，重新run方法  
 
