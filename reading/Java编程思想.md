@@ -79,5 +79,5 @@ public Object clone() {
 3. notify/notifyAll：通知
 
 ## 网络
-Socket套接字主要用于tcp连接
+Socket套接字主要用于tcp连接  
 DatagramSocke 用于udp连接
