@@ -73,4 +73,11 @@ public Object clone() {
 实现方式：  
 1. 实现runnable接口，实现run方法  
 2. 继承Tread类，重新run方法  
+对资源的竞争会造成冲突，为了避免冲突，主要引入如下几个概念：
+1. synchronized：同步。表示方法或代码块对资源的独占，其他线程只能在方法或代码块结束后才能获得资源
+2. wait：挂起，等待通知
+3. notify/notifyAll：通知
 
+## 网络
+Socket套接字主要用于tcp连接
+DatagramSocke 用于udp连接
