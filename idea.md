@@ -1,3 +1,9 @@
+## 破解补丁
+1. 目前来看2017.3.5的版本可以被破解
+2. 下载crack.jar包放到对于idea的bin目录
+3. 修改idea.exe.vmoptions或idea64.exe.vmoptions(按自己的需要来）,增加一行-javaagent:path-to-crack.jar(不用加引号)
+4. 运行idea.exe或者idea64.exe.选择激活码（Activation Code），输入上面增加的那一行
+
 ## **推荐插件**
 * Alibaba Java Coding Guidelines 阿里巴巴JAVA编码规约
 * IDE Features Trainer 帮助使用者更好的熟悉和掌握IDE
