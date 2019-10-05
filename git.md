@@ -92,6 +92,8 @@ git commit --amend
 git checkout -b temp
 
 
+### 有些删除文件的状态一直清除不了
+git commit -am "comment for commit"
 
 
 ### 常用命令
