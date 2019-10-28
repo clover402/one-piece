@@ -10,8 +10,7 @@
 * NewRatio: 设置年轻代（包括Eden和两个Survivor区）与年老代的比值（除去持久代）
 * SurvivorRatio:设置年轻代中Eden区与Survivor区的大小比值
 * MaxPermSize: 设置持久代大小
-### 并行收集器
-#### 吞吐量优先
+### 吞吐量优先并行收集器
 ```
 java -Xmx3800m -Xms3800m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:ParallelGCThreads=20
 java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:ParallelGCThreads=20 -XX:+UseParallelOldGC
@@ -23,8 +22,13 @@ java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:MaxGCPauseMillis
 * **MaxGcPauseMillis**:设置每次年轻代垃圾回收的最长时间
 * **UseAdaptiveSizePolicy**:设置此选项后，并行收集器会自动选择年轻代区大小和相应的Survivor区比例，以达到目标系统规定的最低相应时间或者收集频率等，此值建议使用并行收集器时一直打开。
 
-#### 响应时间优先
+### 响应时间优先的并发收集器
 ```
 java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:ParallelGCThreads=20 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC
+java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseConcMarkSweepGC -XX:CMSFullGCsBeforeCompaction=5 -XX:+UseCMSCompactAtFullCollection
 
 ```
+* **UseConcMarkSweepGC**: 设置年老代为并发收集。
+* **UseParNewGC**: 设置年轻代为并行收集。
+* **CMSFullGCsBeforeCompaction**: 此值设置运行多少次GC后对内存空间进行压缩、整理
+* **UseCMSCompactAtFullCollection**: 打开对年老代的压缩，可能会影响性能，但可以消除碎片
