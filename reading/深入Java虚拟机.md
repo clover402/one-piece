@@ -17,10 +17,10 @@ java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:ParallelGCThread
 java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseParallelGC -XX:MaxGCPauseMillis=100 -XX:+UseAdaptiveSizePolicy
 ```  
 * **ParallelGCThreads**:并行收集器线程数
-* **UseParallelGC**:选择垃圾收集器为并行收集器.此配置仅对年轻代有效。即上述配置下，年轻代使用并发收集，而年老代仍旧使用串行收集
-* **UseParallelOldGC**:配置年老代垃圾收集方式为并行收集
+* **+UseParallelGC**:选择垃圾收集器为并行收集器.此配置仅对年轻代有效。即上述配置下，年轻代使用并发收集，而年老代仍旧使用串行收集
+* **+UseParallelOldGC**:配置年老代垃圾收集方式为并行收集
 * **MaxGcPauseMillis**:设置每次年轻代垃圾回收的最长时间
-* **UseAdaptiveSizePolicy**:设置此选项后，并行收集器会自动选择年轻代区大小和相应的Survivor区比例，以达到目标系统规定的最低相应时间或者收集频率等，此值建议使用并行收集器时一直打开。
+* **+UseAdaptiveSizePolicy**:设置此选项后，并行收集器会自动选择年轻代区大小和相应的Survivor区比例，以达到目标系统规定的最低相应时间或者收集频率等，此值建议使用并行收集器时一直打开。
 
 ### 响应时间优先的并发收集器
 ```
@@ -32,3 +32,11 @@ java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseConcMarkSweepGC -XX:CMSFullGCsB
 * **UseParNewGC**: 设置年轻代为并行收集。
 * **CMSFullGCsBeforeCompaction**: 此值设置运行多少次GC后对内存空间进行压缩、整理
 * **UseCMSCompactAtFullCollection**: 打开对年老代的压缩，可能会影响性能，但可以消除碎片
+
+### 辅助信息
+* **+PrintGC**: 打印GC相关的调试信息
+* **+PrintGCDetails**: 上面的加强版本，更多信息
+* **+PrintGCTimeStamps**： 加时间戳，与上面2个混合使用
+* **+PrintGCApplicationConcurrentTime**: 打印每次垃圾回收前程序未中断的执行时间
+
+
