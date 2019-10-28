@@ -38,5 +38,9 @@ java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseConcMarkSweepGC -XX:CMSFullGCsB
 * **+PrintGCDetails**: 上面的加强版本，更多信息
 * **+PrintGCTimeStamps**： 加时间戳，与上面2个混合使用
 * **+PrintGCApplicationConcurrentTime**: 打印每次垃圾回收前程序未中断的执行时间
+* **+PrintHeapAtGC**: 打印前后的详细堆栈信息
+* **-Xloggc:filename:**:与上面配合使用，记录日志信息到文件
+
+
 
 
