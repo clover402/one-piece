@@ -96,6 +96,17 @@ git checkout -b temp
 git commit -am "comment for commit"
 
 
+### git push到远程分支时报错"remote:error:refusing to update checked out branch:refs/heads/master"
+修改.git/config添加
+```
+[receive]
+denyCurrentBranch = ignore
+```
+并执行git config --bool core.bare true
+
+
+
+
 ### 常用命令
 ```
 git config --list 查看配置
