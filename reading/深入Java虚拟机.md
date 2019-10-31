@@ -41,6 +41,11 @@ java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseConcMarkSweepGC -XX:CMSFullGCsB
 * **+PrintHeapAtGC**: 打印前后的详细堆栈信息
 * **-Xloggc:filename:**:与上面配合使用，记录日志信息到文件
 
+## JVM调优工具
+### jvisualVM
+jdk包里面都有，在bin目录下面，可以选择安装一些插件帮助分析  
+主要使用：监视、线程、visual GC（插件）  
+
 
 
 
