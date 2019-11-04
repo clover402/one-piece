@@ -64,7 +64,7 @@ Documentation=https://github.com/shadowsocks/shadowsocks
 After=network.target
 [Service]
 Type=simple
-User=nobody
+User=root
 ExecStart=/usr/bin/ss-server -c /etc/shadowsocks-libev/config.json
 ExecReload=/bin/kill -HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
