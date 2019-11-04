@@ -95,6 +95,6 @@ netstat -tunlp | grep xxx
 
 #11. ssh tunnel socket
 ```
-ssh -TnN -D 1080 -o TCPKeepAlive=yes -o ServerAliveInterval=30 git@47.56.114.34 "vmstat 30"
+ssh -TnN -D 1080 -o TCPKeepAlive=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=5  git@47.56.114.34 "vmstat 30"
 
 ```
