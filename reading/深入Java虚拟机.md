@@ -38,8 +38,7 @@ java虚拟机管理的核心区域，动态分配的内存区域，主要存储�
 ## 分代示意图
 ![分代1](http://m.qpic.cn/psb?/V14Yvw6F0uSJqd/88Bg7V2KIZHW2AtSsSqt*TqZu8Ky8rgGoAFKZghpUCg!/b/dFIBAAAAAAAA&bo=bgP9AQAAAAADB7M!&rf=viewer_4)
 
-![分代2]
-(http://m.qpic.cn/psb?/V14Yvw6F0uSJqd/7PSHNXso1Pe4p5g4jDwDPSmkF1iyWBhXdbTEuUbbFHY!/b/dLYAAAAAAAAA&bo=JAKtAQAAAAADJ4g!&rf=viewer_4)
+![分代2](http://m.qpic.cn/psb?/V14Yvw6F0uSJqd/7PSHNXso1Pe4p5g4jDwDPSmkF1iyWBhXdbTEuUbbFHY!/b/dLYAAAAAAAAA&bo=JAKtAQAAAAADJ4g!&rf=viewer_4)
 
 ## 典型配置举例
 ### 基础配置
