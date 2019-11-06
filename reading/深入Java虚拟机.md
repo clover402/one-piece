@@ -1,3 +1,24 @@
+## 垃圾收集算法
+1. 标记-清除算法：效率低，产生大量碎片
+2. 复制：内存分两块，每次只用一半，当半块用完，把存活的对象复制到另外一半上，然后把原来的一次全部清除
+3. 分代收集：根据对象存活周期划分几个块，然后依次执行复制的算法来回收垃圾
+
+## 判断对象死亡的方法
+1. 引用计数算法(Reference Counting)：无法解决循环引用的问题
+2. 根搜索算法(GC Roots Tracing)：当一个对象到GC Roots没有引用链相连，则证明对象不可用。GC Roots包括：
+* VM栈中的引用
+* 方法区的静态引用
+* JNI（Native方法）中的引用
+
+## 垃圾收集器
+1. Serial收集器：单线程
+2. ParNew收集器：多线程
+3. Parallel Scavenge收集器：多线程，大吞吐量长时间STW
+4. Serial Old：年老代，单线程
+5. Parallel Old： 年老代，吞吐量优先
+6. CMS（Concurrent Mark Sweep）：最短停顿时间，高实时高交互
+
+
 ## 分代示意图
 ![分代](http://m.qpic.cn/psb?/V14Yvw6F0uSJqd/88Bg7V2KIZHW2AtSsSqt*TqZu8Ky8rgGoAFKZghpUCg!/b/dFIBAAAAAAAA&bo=bgP9AQAAAAADB7M!&rf=viewer_4)
 
