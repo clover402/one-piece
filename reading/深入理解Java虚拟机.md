@@ -20,3 +20,10 @@
 如果使用分代算法，永久代就是方法区。  
 此区域较少进行垃圾回收，主要针对常量池的回收和对类型的卸载。  
 运行时常量池:存储预置常量及运行期间的产生的新常量
+
+### 1.2对象访问
+#### 1.2.1句柄访问
+![句柄访问](http://m.qpic.cn/psb?/V14Yvw6F0uSJqd/fqFS9yn2Ct.SnbnTjBFdH0EMSeqk.z615kcxk*CPM4A!/b/dD4BAAAAAAAA&bo=qQOnAQAAAAADBy4!&rf=viewer_4)
+#### 1.2.2直接访问
+Sun HotSpot采用这种方式
+![直接访问](http://m.qpic.cn/psb?/V14Yvw6F0uSJqd/CFLtCu**aNy1U3uR5Jrl2qK3DYGRVvLW5k*zAQ35Xd8!/b/dFEBAAAAAAAA&bo=sQOlAQAAAAADFyQ!&rf=viewer_4)
