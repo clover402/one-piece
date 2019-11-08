@@ -7,6 +7,12 @@
 使用大量的重复key会严重降低性能。  
 如果在迭代器生成后，使用非迭代器的remove方法来修改Map都会抛异常
 
+### 实现描述
+#### 箱型（binned(bucketd)）
+
+#### 树形（TreeNodes）
+元素量特别大时默认转为树形结构
+
 ###  public方法
 1. boolean containsKey(Object key)
 2. boolean containsValue(Object value)
