@@ -27,6 +27,11 @@
 如果元素数量变少，会转化回原来的箱型。
 hashCodes区分度很高冲突很少时，树形结构很少用到
 
+### 属性
+#### transient Node<K,V>[] table
+实际存储数据的结构，是一个链表数组，每个元素Node都是一个联表。树形结构的TreeNode实际上也是它的子类。不参与序列化
+#### transient Set<Map.Entry<K,V>> entrySet
+所有元素节点，真正存数据的结构
 
 ###  public方法
 1. boolean containsKey(Object key)
