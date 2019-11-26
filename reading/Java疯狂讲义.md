@@ -1,15 +1,15 @@
 ## Chap 8 Collections
-### Iterator
+### 8.2 Iterator
 集合删除元素时一定要**使用迭代器的remove方法**，否则会抛异常
 
-### Set
+### 8.3 Set
 集合，元素不可重复，通过元素的equals方法来判断，所以equals方法一定要写好  
 如果元素是可变对象则可能会在元素改变后导致异常
 #### HashSet LinkedHashSet 无序
-#### TreeSet 带排序功能
+#### TreeSet 实现了SortedSet接口带排序功能
 #### EnumSet 元素都是枚举
 
-### List
+### 8.4 List
 有序集合
 #### ListIterator 
 增加了向前迭代 和 添加元素的方法  
@@ -20,11 +20,26 @@
 ##### Stack 
 栈，模拟栈的数据结构，后进先出，性能不好
 #### LinkedList 
-基于链表的List。插入删除速度快。可以作为栈来使用
+基于链表的List。插入删除速度快,随机访问性能差，采用迭代器来遍历元素更好
 #### Arrays.asList 
 固定长度List
 
-### Queue
+### 8.5 Queue
 模拟队列结构，先进先出
+#### PriorityQueue 
+按元素大小排序，不允许传入null，可以自然排序或定制排序
+#### Deque
+子接口，双端队列
+##### ArrayDeque
+基于数组的实现类，可以当做栈来使用，性能比Stack好
+##### LinkedList
+Deque的另外一个实现类，可以作为双端队列或者栈来使用
 
-### Map
+### 8.6 Map
+类似于php中的关联数组，python的字典
+#### HashMap
+不能保证顺序
+#### Hashtable 
+古老的数据结构，新版本不建议使用，线程安全，不运行null作为key或者value
+#### LinkedHashMap
+#### TreeMap
