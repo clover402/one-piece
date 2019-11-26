@@ -38,8 +38,8 @@ Deque的另外一个实现类，可以作为双端队列或者栈来使用
 ### 8.6 Map
 类似于php中的关联数组，python的字典
 #### HashMap
-不能保证顺序
+不能保证顺序。如果添加自定义类作为key，重写equals和hashCode是要保证两个方法判断标准一致
+#### LinkedHashMap
 #### Hashtable 
 古老的数据结构，新版本不建议使用，线程安全，不运行null作为key或者value
-#### LinkedHashMap
 #### TreeMap
