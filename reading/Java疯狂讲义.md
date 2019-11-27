@@ -36,7 +36,8 @@
 Deque的另外一个实现类，可以作为双端队列或者栈来使用
 
 ### 8.6 Map
-类似于php中的关联数组，python的字典
+类似于php中的关联数组，python的字典  
+Set的实现就是基于value全为null的Map
 #### HashMap
 不能保证顺序。如果添加自定义类作为key，重写equals和hashCode是要保证两个方法判断标准一致
 #### LinkedHashMap 
@@ -51,9 +52,8 @@ key只保留对象的弱引用，如果key所引用的对象没有被其他强�
 #### IdentifyHashMap
 两个key严格相等时（==）才认为两个key相等
 #### EnumMap
-key必须是单个枚举类的枚举值
+key必须是单个枚举类的枚举值，根据枚举值定义的顺序排列，不允许null作为key，创建时要指定枚举类
 
 
-
-
+### 8.7 HashSet与HashMap性能对比
 
