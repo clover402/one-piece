@@ -39,7 +39,21 @@ Deque的另外一个实现类，可以作为双端队列或者栈来使用
 类似于php中的关联数组，python的字典
 #### HashMap
 不能保证顺序。如果添加自定义类作为key，重写equals和hashCode是要保证两个方法判断标准一致
-#### LinkedHashMap
+#### LinkedHashMap 
+双向链表，维护元素插入顺序
 #### Hashtable 
 古老的数据结构，新版本不建议使用，线程安全，不运行null作为key或者value
-#### TreeMap
+##### Properties Hashtable的子类，可以读取属性配置文件到Map对象
+#### TreeMap 
+实现了SortedMap接口，根据key对节点进行排序，有自然排序和定制排序
+#### WeakHashMap
+key只保留对象的弱引用，如果key所引用的对象没有被其他强引用对象引用则可能会被垃圾回收，这些key对应的节点也可能会被自动删除
+#### IdentifyHashMap
+两个key严格相等时（==）才认为两个key相等
+#### EnumMap
+key必须是单个枚举类的枚举值
+
+
+
+
+
