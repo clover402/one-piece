@@ -55,5 +55,14 @@ key只保留对象的弱引用，如果key所引用的对象没有被其他强�
 key必须是单个枚举类的枚举值，根据枚举值定义的顺序排列，不允许null作为key，创建时要指定枚举类
 
 
-### 8.7 HashSet与HashMap性能对比
+### 8.7 HashSet与HashMap性能说明
+#### 术语
+* bucket: 桶，hash表里存储元素的位置
+* cpacity：容量，hash表中桶的数量
+* initial capacity：初始化容量
+* size：尺寸，hash表中记录的数量
+* load factor：负载因子（size/capacity）
+* 负载极限：最大填满程度，达到时成倍增加容量，并重新分配（rehashing），默认值0.75
+
+### 8.8 工具类Collections
 
