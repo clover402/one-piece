@@ -1,4 +1,4 @@
-## Chap 8 Collections
+## Chap8 Collections
 ### 8.2 Iterator
 集合删除元素时一定要**使用迭代器的remove方法**，否则会抛异常
 
@@ -65,4 +65,29 @@ key必须是单个枚举类的枚举值，根据枚举值定义的顺序排列�
 * 负载极限：最大填满程度，达到时成倍增加容量，并重新分配（rehashing），默认值0.75
 
 ### 8.8 工具类Collections
+* reserve 反转
+* shuffle 洗牌
+* sort 排序
+* swap 交换两个元素的位置
+* rotate 翻转 将后x个元素移到前面或者前x个元素移到后面
+* binarySearch 查找
+* max/min 最大最小
+* fill 填充
+* frequency 返回指定元素出现次数
+* indexOfSubList/lastIndexOfSubList 返回子列表在父列表中出现的位置索引
+* replaceAll 替换
+* emptyXxx()/singetonXxx()/unmodifiableXxx() 空集合/单元素集合/不可变集合
+
+### 8.9 Enumeration接口
+Iterator迭代器的古老版本  
+* hasMoreElements
+* nextElements  
+新集合再不支持此接口  
+
+## Chap9 泛型
+  
+  
+
+
+
 
