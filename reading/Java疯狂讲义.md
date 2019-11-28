@@ -93,8 +93,8 @@ Iterator迭代器的古老版本
 泛型与数组有所不同：Integer[] 是 Number[]的子类，List<Integer> 并不是List<Number>的子类  
 通配符:  
 * ? 表示任意类型
-* ? extends ClassA 表示都是ClassA的子类
-* ? super ClassA 表示都是ClassA的父类  
+* ? extends ClassA 表示都是ClassA及其子类
+* ? super ClassA 表示都是ClassA及其父类  
   
 
 
