@@ -95,6 +95,7 @@ Iterator迭代器的古老版本
 * ? 表示任意类型
 * ? extends ClassA 表示都是ClassA及其子类
 * ? super ClassA 表示都是ClassA及其父类  
+非泛型转泛型则类型信息会丢失，泛型转非泛型可以编译通过但是会发出“未经检查的转换”警告  
   
 
 
