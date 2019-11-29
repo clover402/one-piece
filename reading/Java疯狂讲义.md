@@ -99,6 +99,13 @@ Iterator迭代器的古老版本
   
 
 ## Chap10 异常处理
+### Error
+一般为虚拟机相关问题，如系统崩溃、虚拟机错误、动态链接失败等  
+程序无需处理
+### Exception
+* getMessage 异常描述
+* printStackTrace 将异常的跟踪栈输出
+* getStackTrace 返回异常的跟踪栈信息
 
 
 
