@@ -105,7 +105,8 @@ Iterator迭代器的古老版本
 ### Exception
 * getMessage 异常描述
 * printStackTrace 将异常的跟踪栈输出
-* getStackTrace 返回异常的跟踪栈信息
+* getStackTrace 返回异常的跟踪栈信息  
+finally主要进行资源的回收
 
 
 
