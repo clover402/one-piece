@@ -107,6 +107,10 @@ Iterator迭代器的古老版本
 * printStackTrace 将异常的跟踪栈输出
 * getStackTrace 返回异常的跟踪栈信息  
 finally主要进行资源的回收
-
+#### Checked异常
+编译时的错误，必须解决了才能执行  
+要么显示抛出异常，要么捕获并处理
+#### RuntimeException
+运行时异常
 
 
