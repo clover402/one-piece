@@ -118,5 +118,11 @@ finally主要进行资源的回收
 try语句块不要过于庞大
 不要使用空catch  
 
+## Chap14 Annotation(注解)
+### 14.1 常用注解
+#### Override 方法重写使用，可以检查重写的方法定义是否正确
+#### Deprecated 一般用于被弃用的方法或类
+#### SuppressWarnings 去掉编译器警告，可以通过参数去掉各种类型的警告
+#### SafeVarargs 专门为抑制“堆污染”（讲不带类型的泛型赋值给带类型的）警告提供
 
-
+### 14.2 JDK的元Annotation
