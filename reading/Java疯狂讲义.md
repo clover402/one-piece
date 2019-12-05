@@ -151,6 +151,7 @@ try语句块不要过于庞大
 被它修饰的注解A将有继承性，父类使用了注解A，则子类将自动被注解A修饰
 
 ### 14.3 自定义Annotation
+#### 定义注解
 语法如下
 ```java
 //注解都是通过@interface来定义，使用时用@YourAnnotation即可
@@ -160,5 +161,11 @@ public @interface YourAnnotation{
     int age() default 32;
 }
 ```
+#### 读取注解
+注解通常无法直接生效，通常要读取后写实现逻辑，读取注解主要使用反射中如下三个方法
+* getAnnotation(Class<T> annotationClass) 获取指定注解
+* Annotation[] getAnnotations() 获取元素上所有的注解
+* boolean isAnnotationPresent(Class<? extends Annotation> annotationClass) 判断元素是否存在指定类型的注解
+
 
 
