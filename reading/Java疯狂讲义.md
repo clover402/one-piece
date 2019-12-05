@@ -167,5 +167,6 @@ public @interface YourAnnotation{
 * Annotation[] getAnnotations() 获取元素上所有的注解
 * boolean isAnnotationPresent(Class<? extends Annotation> annotationClass) 判断元素是否存在指定类型的注解
 
-
+### 14.4 编译时处理Annotation
+主要是实现生成额外的源代码和其他文件，需要APT（Annotation Processing Tool）来处理。
 
