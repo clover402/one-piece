@@ -126,3 +126,30 @@ try语句块不要过于庞大
 #### SafeVarargs 专门为抑制“堆污染”（讲不带类型的泛型赋值给带类型的）警告提供
 
 ### 14.2 JDK的元Annotation
+修饰其他Annotantion定义用的
+#### Retention
+指定被修饰的注解可以保留多长时间
+* RetentionPolicy.SOURCE 只在源代码时有效
+* RetentionPolicy.CLASS 在类文件时有效
+* RetentionPolicy.RUNTIME 运行时都有效
+
+#### Target
+指定被修饰的注解可以用于修饰哪些程序单元
+* ElementType.ANNOTATION_TYPE 只能修饰注解
+* ElementType.CONSTRUCTOR 只能修饰构造器
+* ElementType.FIELD 只能修饰成员变量
+* ElementType.LOCAL_VARIABLE 只能修饰局部变量
+* ElementType.MEHTOD 只能修饰方法定义
+* ElementType.PACKAGE 只能修饰包定义
+* ElementType.PARAMETER 可以修饰参数
+* ElementType.TYPE 可以修饰类、接口或枚举
+
+#### Documented
+指定被其修饰的注解类将被javadoc工具提取成文档
+
+#### Inherited
+被它修饰的注解A将有继承性，父类使用了注解A，则子类将自动被注解A修饰
+
+
+
+
