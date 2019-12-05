@@ -150,6 +150,15 @@ try语句块不要过于庞大
 #### Inherited
 被它修饰的注解A将有继承性，父类使用了注解A，则子类将自动被注解A修饰
 
-
+### 14.3 自定义Annotation
+语法如下
+```
+//注解都是通过@interface来定义，使用时用@YourAnnotation即可
+public @interface YourAnnotation{
+    //成员变量需要用方法的形式来定义，并设置默认值
+    String name() default "yeeku";
+    int age() default 32;
+}
+```
 
 
