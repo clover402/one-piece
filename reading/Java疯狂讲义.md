@@ -207,9 +207,15 @@ System.in, System.out标准输入/输出，默认是键盘和显示器，可以�
 写入：ObjectOutputStream对象的writeObject方法  
 读取：ObjectInputStream对象的readObject方法  
 反序列化需要提供对象所属的类，而且反序列化不需要调用构造函数。如果存在引用类则引用类要可序列化，如果有父类，而且要用父类的属性则父类也要支持序列化  
+同一个对象序列化时只有第一次会写入对象数据，后面只会存其id  
+如果希望某字段不参与序列化，可以通过transient关键字实现（瞬态）  
+自定义序列化可通过writeObject, readObject, readObjectNoData方法来实现  
+writeReplace方法可以在序列化对象时将该对象替换成其他对象  
+readResolve该方法的返回值会替换原来反序列化的对象，主要用于单例类、枚举类  
+版本：定义一个类的序列化版本 private static final Long serialVersionUID=xxxL，只要该值一样就可以进行序列化反序列化。  
+如果修改了非静态非瞬台Field，则需要更新上面的ID，否则不用更新。新版本类新增Field也可以兼容。
 
-
-
+### 15.9 NIO
 
 
 
