@@ -177,7 +177,39 @@ public @interface YourAnnotation{
 JAVA把不同的输入/输出源（键盘、文件、网络等）抽象为流（stream），stream是从起源（source）到接受（sink）的有序数据  
 #### 流的分类
 * 输入流 & 输出流
-* 字符流（16位） & 字节流（8位）：Reader Writer/InputStream OutputStream
+* 字符流（16位） & 字节流(8位)
 * 节点流（低级流） & 处理流（高级流）
+
+### 15.3 字节流&字符流
+Reader Writer/InputStream OutputStream  
+处理的单位不一样，一个是字节位单位，一个是字符（4个16进制数）为单位
+
+### 15.4 输入/输出流体系
+#### rule: 文本使用字符流，二进制文件使用字节流 
+#### 转换流：InputStreamReader OutStreamWriter  字节流->字符流
+#### 管道流：PipedInputStream PipedOutputStream PipedReader PipedWriter
+#### 缓冲区：BufferedReader BufferedWriter
+#### 推回输入流： PushbackInputStream PushbackReader 将数据推回到缓冲区
+
+### 15.5 重定向标准输入/输出
+System.in, System.out标准输入/输出，默认是键盘和显示器，可以通过System的setErr，setIn，setOut方法来设置
+
+### 15.6 读取其他进程数据
+主要使用Process类的3个方法获取子进程的错误流、输入流、输出流
+
+### 15.7 RandomAccessFile
+可自由读写文件，可以向已存在的文件追加内容。无法向文件的指定位置插入内容，会覆盖原来的内容
+
+### 15.8 对象序列化
+目的：存储java对象，或通过网络传输java对象  
+操作：将对象转换成字节序列  
+需要实现Serializable 或 Externalizable接口  
+写入：ObjectOutputStream对象的writeObject方法  
+读取：ObjectInputStream对象的readObject方法  
+反序列化需要提供对象所属的类，而且反序列化不需要调用构造函数。如果存在引用类则引用类要可序列化，如果有父类，而且要用父类的属性则父类也要支持序列化  
+
+
+
+
 
 
