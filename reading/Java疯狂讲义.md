@@ -216,6 +216,43 @@ readResolve该方法的返回值会替换原来反序列化的对象，主要用
 如果修改了非静态非瞬台Field，则需要更新上面的ID，否则不用更新。新版本类新增Field也可以兼容。
 
 ### 15.9 NIO
+#### Channel 通道
+对传统输入输出系统的模拟，提供map方法，可以直接将一块数据映射到内存
+必须通过Buffer来操作
+建议都通过传统节点（InputStream/OutputStream）的getChannel方法来返回对应的Channel
+* map方法: 返回对应的Buffer
+* read方法
+* write方法
+##### DatagramChannel/SocketChannel/ServerSocketChannel UPD/TCP网络通信
+##### Pipe.SinkChannel/Pipe.SourceChannel 线程之间通信
+##### FileChannel 
 
+#### Buffer 容器
+本质是一个数组，要通过Buffer来操作Channel对象
+* capacity 容量：最大容量
+* limit 界限：第一个不能被读写的缓冲区位置索引
+* position 位置：下一个可以被读写的缓冲区位置索引  
+* flip方法：装入数据后调用，为取出数据做准备
+* clear方法：输出数据结束后调用，为装入数据做准备
+* get/put方法：放入取出数据，注意有个相对和绝对的概念，相对会从position开始会改变position的值，绝对从头开始不影响position
+##### ByteBuffer 通过ByteBuffer.allocate(capacity)创建
+##### MappedByteBuffer（通过Channel.map()创建）
+##### CharBuffer 通过CharBuffer.allocate(capacity)创建
+
+#### 字符集和编码
+* Unicode：Java默认字符集
+* GBK 简体中文
+* BIG5 繁体中文
+* ISO-8859-1 ISO拉丁字母表,也称ISO-LATIN-1
+* UTF-8
+Charset.availableCharsets()获取JDK支持的所有字符集  
+Charset.forName("UTF-8")获取字符集对象，该对象有编码器和解码器，可以将ByteBuffer和CharBuffer进行互相转换  
+StandarCharsets工具类包含常用字符集对象
+
+#### 文件锁
+FileLock支持文件锁定
+FileChannel中的lock（阻塞）/trylock（非阻塞）方法可以获得文件锁FileLock对象，这两个方法还可以只锁定部分内容，以及设置是否为共享锁
+
+### 15.10 NIO.2
 
 
