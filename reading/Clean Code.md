@@ -64,6 +64,13 @@ behavior when all I really need is a few fairly simple ways of finding what I wa
 That’s what makes clean code for me.*  
 &nbsp;&nbsp;&nbsp;&nbsp; --Ron Jeffries(author of Extreme Programming Installed and Extreme ProgrammingAdventures in C#)
   
+>*You know you are working on clean code when each
+routine(例程) you read turns out to be pretty much what
+you expected. You can call it beautiful code when
+the code also makes it look like the language was
+made for the problem.*  
+&nbsp;&nbsp;&nbsp;&nbsp;--Ward Cunningham(inventor of Wiki, inventor of Fit, coinventor of eXtreme Programming)
+  
   
 
 
