@@ -31,14 +31,11 @@ where you are, sitting in appreciation of the
 code someone left for you—code left by someone who cares deeply about the craft.* 
 &nbsp;&nbsp;&nbsp;&nbsp; --Michael Feathers(author of Working Effectively with Legacy Code)  
 
->*In recent years I begin, and nearly end, with Beck’s
-rules of simple code. In priority order, simple code:
-• Runs all the tests;
-• Contains no duplication;
-• Expresses all the design ideas that are in the
-system;
-• Minimizes the number of entities such as classes,
-methods, functions, and the like.
+>*In recent years I begin, and nearly end, with Beck’s rules of simple code. In priority order, simple code:  
+1 Runs all the tests;  
+2 Contains no duplication;  
+3 Expresses all the design ideas that are in the system;  
+4 Minimizes the number of entities such as classes, methods, functions, and the like.  
 Of these, I focus mostly on duplication. When the same thing is done over and over,
 it’s a sign that there is an idea in our mind that is not well represented in the code. I try to
 figure out what it is. Then I try to express that idea more clearly.
@@ -65,7 +62,7 @@ In addition, the collection abstraction often calls my attention to what’s “
 going on, and keeps me from running down the path of implementing arbitrary collection
 behavior when all I really need is a few fairly simple ways of finding what I want.
 Reduced duplication, high expressiveness, and early building of simple abstractions.
-That’s what makes clean code for me.*
+That’s what makes clean code for me.*  
 &nbsp;&nbsp;&nbsp;&nbsp; --Ron Jeffries(author of Extreme Programming Installed and Extreme ProgrammingAdventures in C#)
   
   
