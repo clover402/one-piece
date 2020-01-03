@@ -1,4 +1,4 @@
-# Chap1 Clean Code
+# Chap1. Clean Code
 >*I like my code to be elegant and efficient. The
 logic should be straightforward(简单的、率直的) to make it hard
 for bugs to hide, the dependencies minimal to
@@ -72,5 +72,6 @@ made for the problem.*
 &nbsp;&nbsp;&nbsp;&nbsp;--Ward Cunningham(inventor of Wiki, inventor of Fit, coinventor of eXtreme Programming)
   
   
+# Chap2. Meaningful Names
 
 
