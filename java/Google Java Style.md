@@ -20,7 +20,7 @@ that is, all top-level contents of a class except initializers and comments.
 instead using the common term "Javadoc."  
 Other "terminology notes" will appear occasionally throughout the document.  
 
-此文档中，除非除了明显说明的：
+此文档中，除非除了明确说明的：
 1. 类class用于表示一个普通的类、枚举类、接口或者注解类型（@interface）。
 2. (类的)成员用于表示一个内嵌类、成员变量、成员方法或者构造函数；也就是，一个类除了初始化块和注释的所有顶级内容。
 3. 注释一直都是指的执行注释，我们不使用短语“文档注释”，用Javadoc代替  
@@ -37,4 +37,15 @@ the only stylish way to represent the code. Optional formatting choices made in 
 ## 2.1 File Name
 >The source file name consists of the case-sensitive name of the top-level class it contains (of which there is exactly one), 
 plus the .java extension.
+
+源文件的名字由它包含的（只有一个）大小写敏感的顶级类名加上.java扩展名构成。
+
+## 2.2 File encode: UTF-8
+>Source files are encoded in UTF-8. 源文件全部用utf-8编码
+
+## 2.3 Special characters
+### 2.3.1 Whitespace characters
+>Aside from the line terminator sequence, the ASCII horizontal space character (0x20) is the only whitespace character that appears anywhere in a source file. This implies that:  
+1.All other whitespace characters in string and character literals are escaped.  
+2.Tab characters are not used for indentation.
 
