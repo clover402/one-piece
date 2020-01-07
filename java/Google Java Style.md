@@ -120,7 +120,7 @@ If there are both static and non-static imports, a single blank line separates t
 Within each block the imported names appear in ASCII sort order. (Note: this is not the same as the import statements being in ASCII sort order, since '.' sorts before ';'.)  
 
 引用语句按如下排序：
-1. 一个包含所有的静态引用语句块  
+1. 一个包含所有的静态引用[^1]语句块  
 2. 一个包含所有非静态引用的语句块  
   
 如果同时有静态和非静态引用，两个语句块之间要有一个空行。没有其他的空行在引用语句之间。  
@@ -141,10 +141,14 @@ Within each block the imported names appear in ASCII sort order. (Note: this is 
 >The order you choose for the members and initializers of your class can have a great effect on learnability. However, there's no single correct recipe for how to do it; different classes may order their contents in different ways.  
 What is important is that each class uses some logical order, which its maintainer could explain if asked. For example, new methods are not just habitually added to the end of the class, as that would yield "chronological by date added" ordering, which is not a logical ordering.  
 
-
+你为你的类成员和初始化块选择的顺序对可学习性有很大的影响。但是，对于怎么排序并没有准确的方法；不同的类可能按不同的方式排序。  
+重要的是每个类都用了某种被问时可以说的清楚的逻辑进行排序。例如，新方法不只是随手加到类的尾部，因为这会导致按添加时间排序的顺序，这并不是一个有逻辑的顺序。
 
 #### 3.4.2.1 Overloads: never split
 >When a class has multiple constructors, or multiple methods with the same name, these appear sequentially, with no other code in between (not even private members).
 
+当一个类有多个构造函数或者多个同名方法时，这些方法按顺序出现，在它们之间没有别的代码（甚至是一个私有成员）。
 
 
+
+[^1]: 详情参考[静态引用](http://www.baidu.com)
