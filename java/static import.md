@@ -7,7 +7,8 @@ import static com.abc.test.ClassA.FIELD_A;
 ```
 
 # 什么时候用
-如果一个类里会多次使用一个其他类的静态字段或方法时使用，这样在使用时就很方便
+如果一个类里会多次使用一个其他类的静态字段或方法时使用，这样在使用时就很方便。  
+但这也会降低可能性，有时候类名会让代码更清晰，比如下面的MAX_VALUE表示最大值，这就有点困惑了，如果加上Integer就很清楚时int型的最大值。
 ```java
 import static java.lang.System.out; 
 import static java.lang.Integer.*; 
@@ -20,3 +21,5 @@ public class TestStaticImport {
 }
 ```
 
+# 注意事项
+如果引用的两个类包含相同的静态成员变量时，直接使用成员变量名称会引起二义性，这时需要加上类名来区分。
