@@ -92,6 +92,7 @@ Exactly one blank line separates each section that is present.
 2. 包语句
 3. 引用语句
 4. 一个顶级类  
+  
 每个存在的部分之间只有一个空行
 
 ## 3.1 License or copyright infomation, if present
@@ -99,6 +100,7 @@ Exactly one blank line separates each section that is present.
 
 ## 3.2 Package statement
 >The package statement is not line-wrapped. The column limit (Section 4.4, Column limit: 100) does not apply to package statements.   
+
 包语句不换行。列数限制（4.4节，列数限制：100）不适用于于包语句
 
 ## 3.3 Import statements
@@ -108,7 +110,7 @@ Exactly one blank line separates each section that is present.
 ### 3.3.2 No line-wrapping
 >Import statements are not line-wrapped. The column limit (Section 4.4, Column limit: 100) does not apply to import statements.  
 
-
+引用语句不换行。列数限制不适用于引用语句。
 
 ### 3.3.3 Ordering and spacing
 >Imports are ordered as follows:  
@@ -117,15 +119,29 @@ Exactly one blank line separates each section that is present.
 If there are both static and non-static imports, a single blank line separates the two blocks. There are no other blank lines between import statements.  
 Within each block the imported names appear in ASCII sort order. (Note: this is not the same as the import statements being in ASCII sort order, since '.' sorts before ';'.)  
 
+引用语句按如下排序：
+1. 一个包含所有的静态引用语句块  
+2. 一个包含所有非静态引用的语句块  
+  
+如果同时有静态和非静态引用，两个语句块之间要有一个空行。没有其他的空行在引用语句之间。  
+在每个语句块内引用名按ASCII码顺序排序.(说明：这不等同于引用语句按ASCII排序，因为“.”排在“;”之前)
+
 ### 3.3.4 No static import for classes
->Static import is not used for static nested classes. They are imported with normal imports.
+>Static import is not used for static nested classes. They are imported with normal imports.  
+
+静态引用不用于静态内嵌类。它们使用普通引用。
 
 ## 3.4 Class declaration
 ### 3.4.1 Exactly one top-level class declaration
->Each top-level class resides in a source file of its own.
+>Each top-level class resides in a source file of its own.  
+
+每一个顶级类存在于一个源文件中。
+
 ### 3.4.2 Ordering of class contents
 >The order you choose for the members and initializers of your class can have a great effect on learnability. However, there's no single correct recipe for how to do it; different classes may order their contents in different ways.  
 What is important is that each class uses some logical order, which its maintainer could explain if asked. For example, new methods are not just habitually added to the end of the class, as that would yield "chronological by date added" ordering, which is not a logical ordering.  
+
+
 
 #### 3.4.2.1 Overloads: never split
 >When a class has multiple constructors, or multiple methods with the same name, these appear sequentially, with no other code in between (not even private members).
