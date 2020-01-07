@@ -57,3 +57,28 @@ plus the .java extension.
 >For any character that has a special escape sequence (\b, \t, \n, \f, \r, \", \' and \\), that sequence is used rather than the corresponding octal (e.g. \012) or Unicode (e.g. \u000a) escape.  
 
 对于任意使用了转义的字符 (\b, \t, \n, \f, \r, \", \' 和 \\)，要使用转义符而不是对应的八进制和unicode转义
+
+### 2.3.3 Non-ASCII characters
+>For the remaining non-ASCII characters, either the actual Unicode character (e.g. ∞) or the equivalent Unicode escape (e.g. \u221e) is used. The choice depends only on which makes the code easier to read and understand, although Unicode escapes outside string literals and comments are strongly discouraged.  
+Tip: In the Unicode escape case, and occasionally even when actual Unicode characters are used, an explanatory comment can be very helpful.
+
+对于余下的非ASCII字符，要么直接使用unicode字符（比如 ∞），要使用等价的转义Unicode码（比如 \u221e)。至于选择哪一个仅仅依赖于哪种方式使代码更容易阅读和理解，然而对于非string语法和注释的转义unicode码强烈不推荐。  
+提示：使用转义unicode的情形，即使使用实际的unicode字符的某些情况，提供一个清晰的注释会很有用。
+
+示例：  
+  
+Example | Discussion
+-|-
+String unitAbbrev = "μs";|Best: perfectly clear even without a comment.
+String unitAbbrev = "\u03bcs"; // "μs"|Allowed, but there's no reason to do this.
+String unitAbbrev = "\u03bcs"; // Greek letter mu, "s"|Allowed, but awkward and prone to mistakes.
+String unitAbbrev = "\u03bcs";|Poor: the reader has no idea what this is.
+return '\ufeff' + content; // byte order mark|Good: use escapes for non-printable characters, and comment if necessary.
+  
+>Tip: Never make your code less readable simply out of fear that some programs might not handle non-ASCII characters properly. If that should happen, those programs are broken and they must be fixed.
+
+
+
+
+
+
