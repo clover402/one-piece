@@ -87,18 +87,28 @@ return '\ufeff' + content; // byte order mark|Good: use escapes for non-printabl
 4.Exactly one top-level class  
 Exactly one blank line separates each section that is present.  
 
+一个源文件由以下组成，按顺序：
+1. 许可及版权信息，如果存在的话
+2. 包语句
+3. 引用语句
+4. 一个顶级类  
+每个存在的部分之间只有一个空行
+
 ## 3.1 License or copyright infomation, if present
->If license or copyright information belongs in a file, it belongs here.
+>If license or copyright information belongs in a file, it belongs here.如果许可或版权信息适合一个文件，那么它就属于这儿
 
 ## 3.2 Package statement
->The package statement is not line-wrapped. The column limit (Section 4.4, Column limit: 100) does not apply to package statements.  
+>The package statement is not line-wrapped. The column limit (Section 4.4, Column limit: 100) does not apply to package statements.   
+包语句不换行。列数限制（4.4节，列数限制：100）不适用于于包语句
 
 ## 3.3 Import statements
 ### 3.3.1 No wildcard imports
->Wildcard imports, static or otherwise, are not used.
+>Wildcard imports, static or otherwise, are not used.通配符引用，无论是静态还是非静态，都不允许使用
 
 ### 3.3.2 No line-wrapping
->Import statements are not line-wrapped. The column limit (Section 4.4, Column limit: 100) does not apply to import statements.
+>Import statements are not line-wrapped. The column limit (Section 4.4, Column limit: 100) does not apply to import statements.  
+
+
 
 ### 3.3.3 Ordering and spacing
 >Imports are ordered as follows:  
