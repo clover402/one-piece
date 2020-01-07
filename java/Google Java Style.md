@@ -49,3 +49,11 @@ plus the .java extension.
 1.All other whitespace characters in string and character literals are escaped.  
 2.Tab characters are not used for indentation.
 
+除了行终结符之外，ASCII码水平空白字符(0x20)是唯一一个可以在源文件中可以任意出现的空白字符。这表明：
+1. 所有的其他string和character形式的空白字符需要转义
+2. Tab字符不能用于缩进  
+
+### 2.3.2 Special escape sequence
+>For any character that has a special escape sequence (\b, \t, \n, \f, \r, \", \' and \\), that sequence is used rather than the corresponding octal (e.g. \012) or Unicode (e.g. \u000a) escape.  
+
+对于任意使用了转义的字符 (\b, \t, \n, \f, \r, \", \' 和 \\)，要使用转义符而不是对应的八进制和unicode转义
