@@ -120,7 +120,7 @@ If there are both static and non-static imports, a single blank line separates t
 Within each block the imported names appear in ASCII sort order. (Note: this is not the same as the import statements being in ASCII sort order, since '.' sorts before ';'.)  
 
 引用语句按如下排序：
-1. 一个包含所有的[静态引用](http://www.baidu.com)语句块 
+1. 一个包含所有的[静态引用](https://github.com/clover402/one-piece/blob/master/java/static%20import.md)语句块 
 2. 一个包含所有非静态引用的语句块  
   
 如果同时有静态和非静态引用，两个语句块之间要有一个空行。没有其他的空行在引用语句之间。  
