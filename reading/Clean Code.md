@@ -77,5 +77,10 @@ made for the problem.*
 ## Avoid Disinformation(避免虚假信息，命名要与它的含义一致)
 ## Make Meaningful Distinctions(命名要有区分度，比如数字后缀就是个反例)
 ## Use Pronounceable Names(使用可以发音的命名，便于沟通交流)
-## Use Searchable Names()
+## Use Searchable Names(使用可搜索的命名，长名字比短名字好，可搜索的名字比常量好)
+## Avoid encodings
+1. Hungarian Notation(匈牙利命名，主要用于C语言场景，像JAVA类的高级语言不适用)
+2. Member Prefixes(不要使用成员前缀，比如m_)
+
+
 
