@@ -73,5 +73,9 @@ made for the problem.*
   
   
 # Chap2. Meaningful Names
-
+## Use Intenton-Revealing Names(明明要表达你的意图)
+## Avoid Disinformation(避免虚假信息，命名要与它的含义一致)
+## Make Meaningful Distinctions(命名要有区分度，比如数字后缀就是个反例)
+## Use Pronounceable Names(使用可以发音的命名，便于沟通交流)
+## Use Searchable Names()
 
