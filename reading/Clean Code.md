@@ -89,4 +89,6 @@ made for the problem.*
 方法名使用动词或动词短语，名词的话需要加上get、set或is前缀  
 当构造函数重载时，使用描述参数的静态的工厂方法更佳  
 ## Don't Be Cute
+不要命名得太聪明，带一些你自己或少部分人知道的梗，这会给其他人带来困惑。
+## Pick One Word per Concept
 
