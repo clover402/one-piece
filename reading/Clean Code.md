@@ -106,3 +106,11 @@ made for the problem.*
 使用问题领域的术语
 ## Add Meaningful Context
 添加一些有意义的上下文，比如包名、类名、函数名或者前缀。
+## Don't Add Gratuitous Context
+不叫加无用的上下文。比如一个Gas station Deluxe的项目，所有类都加GSD的前缀，毫无意义。  
+有时候一个简洁有力的名字更好。
+## Final Words
+选择一个好的名字最难的地方是它需要很好的表达能力和共有的文化背景。
+
+# Chap3 Functions
+
