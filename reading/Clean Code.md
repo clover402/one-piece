@@ -82,6 +82,9 @@ made for the problem.*
 1. Hungarian Notation(匈牙利命名，主要用于C语言场景，像JAVA类的高级语言不适用)
 2. Member Prefixes(不要使用成员前缀，比如m_)
 3. Interfaces and Implementations(接口不用加I前缀，实现可以加Imp后缀)
-## AVoid Mental Mapping
+## AVoid Mental Mapping(避免心理上的映射，比如r代表url的路径部分)
+## Class Names
+使用名词或名称短语，避免使用Manager，Processor，Data和Info，不清晰没有意义。不要使用动词
+## Mehtod Names
 
 
