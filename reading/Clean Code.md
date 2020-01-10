@@ -91,4 +91,7 @@ made for the problem.*
 ## Don't Be Cute
 不要命名得太聪明，带一些你自己或少部分人知道的梗，这会给其他人带来困惑。
 ## Pick One Word per Concept
+使用同一个词表示一个抽象概念。fetch、retrieve和get，实际上是代表同样的含义，所以选一个用在所有的地方。
+## Don't Pun
+不要使用同一个词表示两个不同的目的。
 
