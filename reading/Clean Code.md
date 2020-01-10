@@ -73,16 +73,22 @@ made for the problem.*
   
   
 # Chap2. Meaningful Names
-## Use Intenton-Revealing Names(明明要表达你的意图)
-## Avoid Disinformation(避免虚假信息，命名要与它的含义一致)
-## Make Meaningful Distinctions(命名要有区分度，比如数字后缀就是个反例)
-## Use Pronounceable Names(使用可以发音的命名，便于沟通交流)
-## Use Searchable Names(使用可搜索的命名，长名字比短名字好，可搜索的名字比常量好)
+## Use Intenton-Revealing Names
+命名要表达你的意图
+## Avoid Disinformation
+避免虚假信息，命名要与它的含义一致
+## Make Meaningful Distinctions
+命名要有区分度，比如数字后缀就是个反例
+## Use Pronounceable Names
+使用可以发音的命名，便于沟通交流
+## Use Searchable Names
+使用可搜索的命名，长名字比短名字好，可搜索的名字比常量好
 ## Avoid Encodings
 1. Hungarian Notation(匈牙利命名，主要用于C语言场景，像JAVA类的高级语言不适用)
 2. Member Prefixes(不要使用成员前缀，比如m_)
 3. Interfaces and Implementations(接口不用加I前缀，实现可以加Imp后缀)
-## Avoid Mental Mapping(避免心理上的映射，比如r代表url的路径部分)
+## Avoid Mental Mapping
+避免心理上的映射，比如r代表url的路径部分
 ## Class Names
 类名使用名词或名称短语，避免使用Manager，Processor，Data和Info，不清晰没有意义。不要使用动词
 ## Mehtod Names
@@ -94,4 +100,9 @@ made for the problem.*
 使用同一个词表示一个抽象概念。fetch、retrieve和get，实际上是代表同样的含义，所以选一个用在所有的地方。
 ## Don't Pun
 不要使用同一个词表示两个不同的目的。
-
+## Use Solution Domain Names
+使用解决方案领域内的术语，这样大家都懂的
+## Use Problem Domain Names
+使用问题领域的术语
+## Add Meaningful Context
+添加一些有意义的上下文，比如包名、类名、函数名或者前缀。
