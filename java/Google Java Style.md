@@ -286,6 +286,15 @@ Predicate<String> predicate = str ->
 ```
 >Note: The primary goal for line wrapping is to have clear code, not necessarily code that fits in the smallest number of lines.
 
+换行的主要指导是：尽量在一个更高级别的语法处换行。也就是说：
+1. 当一个行在非赋值操作符处换行时换行要在符号之前。（注意这不同于使用谷歌风格的其他语言，例如C++和JavaScript）  
+这也用于如下类操作符符合：
+* 点分隔符(.)
+* 双冒号方法引用(::)
+* 类型约束中的&(<T extends Foo & Bar>)
+* catch块中的管道符号(catch( FooException| BarException e))
+2. 
+
 ### 4.5.2  Indent continuation lines at least +4 spaces
 >When line-wrapping, each line after the first (each continuation line) is indented at least +4 from the original line.  
 When there are multiple continuation lines, indentation may be varied beyond +4 as desired. In general, two continuation lines use the same indentation level if and only if they begin with syntactically parallel elements.  
