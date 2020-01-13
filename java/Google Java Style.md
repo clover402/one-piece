@@ -271,7 +271,7 @@ This also applies to the following "operator-like" symbols:
 *an ampersand in a type bound (<T extends Foo & Bar>)  
 *a pipe in a catch block (catch (FooException | BarException e)).  
 2.When a line is broken at an assignment operator the break typically comes after the symbol, but either way is acceptable.  
-This also applies to the "assignment-operator-like" colon in an enhanced for ("foreach") statement.
+This also applies to the "assignment-operator-like" colon in an enhanced for ("foreach") statement.  
 3.A method or constructor name stays attached to the open parenthesis (() that follows it.  
 4.A comma (,) stays attached to the token that precedes it.  
 5.A line is never broken adjacent to the arrow in a lambda, except that a break may come immediately after the arrow if the body of the lambda consists of a single unbraced expression. Examples:  
@@ -293,11 +293,23 @@ Predicate<String> predicate = str ->
 * 双冒号方法引用(::)
 * 类型约束中的&(<T extends Foo & Bar>)
 * catch块中的管道符号(catch( FooException| BarException e))
-2. 
+2. 当一行以赋值运算符换行时一般来说换行实在符号后面，但是另外一种方式也是可以接受的。  
+这个适用于加强版的for（foreach）语句中“类复制运算符”的冒号
+3. 一个方法或者构造函数后面会紧跟一个左括号（(）
+4. 一个逗号（,）紧跟在它前面的内容之前
+5. 一行绝对不会在lambda表达式中箭头附近换行，换行可以在箭头之后马上出现除非lambda表达式的方法体由一个没括号的单个表达式组成  
+
+说明: 换行主要的目标是拥有清晰的代码，而不是保持最小行数的代码
 
 ### 4.5.2  Indent continuation lines at least +4 spaces
 >When line-wrapping, each line after the first (each continuation line) is indented at least +4 from the original line.  
 When there are multiple continuation lines, indentation may be varied beyond +4 as desired. In general, two continuation lines use the same indentation level if and only if they begin with syntactically parallel elements.  
 Section 4.6.3 on Horizontal alignment addresses the discouraged practice of using a variable number of spaces to align certain tokens with previous lines.
 
+当换行时，第一行后的每行（后续行）相较原来的行至少要增加4个空格的缩进  
+当有多个后续行时，缩进可能会根据需要大大超过4个空格。一般来说，2个后续行使用同样的缩进水平当且仅当他们以语法上相识的元素开始时  
+4.6.3节关于水平对齐的内容表明不鼓励使用一个变化数量的空格来对齐之前行的某些内容。
+
+## 4.6 Whitespace
+### 4.6.1 Vertical Whitespace
 
