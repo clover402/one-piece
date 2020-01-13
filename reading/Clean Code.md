@@ -113,4 +113,16 @@ made for the problem.*
 选择一个好的名字最难的地方是它需要很好的表达能力和共有的文化背景。
 
 # Chap3 Functions
+## Small
+First rule small, second rule be smaller than that.  
+函数的大小不要超过一屏，越小越好
+
+## Blocks and Indenting
+在if、else、while等语句中的代码块应该只有一行，最好抽象成一个函数
+
+## Do One Thing
+FUNCTIONS SHOULD DO ONE THING.THEY SHOULD DO IT WELL.THEY SHOULD DO IT ONLY.  
+只干一件事的函数是不能被合理的分成多个部分的
+
+## One Level of Abstraction per Function
 
