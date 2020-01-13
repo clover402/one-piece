@@ -240,7 +240,8 @@ Examples:
 3.Command lines in a comment that may be cut-and-pasted into a shell.  
 
 java代码有100个字符的列数限制。一个“字符”表示任意的unicode代码。除了下面特殊说明的外，任何超过这个限制的行都必须换行，就像4.5节-换行所说的那样。
->每个unicode码都算作一个字符，即使它的显示宽度或大或小。例如，如果使用全角字符，你可以选择比规则要求的更早些换行。  
+>每个unicode码都算作一个字符，即使它的显示宽度或大或小。例如，如果使用全角字符，你可以选择比规则要求的更早些换行。 
+
 例外:  
 1. 所有的行都遵守列数限制是不可能的(例如,Javadoc里的长URL，或者一个长的JSNI方法引用).
 2. 包语句和引入语句
@@ -250,7 +251,44 @@ java代码有100个字符的列数限制。一个“字符”表示任意的unic
 >Terminology Note: When code that might otherwise legally occupy a single line is divided into multiple lines, this activity is called line-wrapping.  
 There is no comprehensive, deterministic formula showing exactly how to line-wrap in every situation. Very often there are several valid ways to line-wrap the same piece of code.
 
+术语说明：当原先占据一行的代码被分成了多行，这个活动被称为换行。  
+没有详细的固定的公式来表明每种情况具体该怎么换行。通常对于同样的代码有几种合法的换行方式。
+
 >Note: While the typical reason for line-wrapping is to avoid overflowing the column limit, even code that would in fact fit within the column limit may be line-wrapped at the author's discretion.
 
->Tip: Extracting a method or local variable may solve the problem without the need to line-wrap.
+说明：典型的换行理由是避免超过列数限制，甚至代码事实上在限制以内也可能由于作者的意图而换行
+
+>Tip: Extracting a method or local variable may solve the problem without the need to line-wrap.  
+
+提示：提前一个方法或者局部变量可以不用换行而解决这个问题。
+
+### 4.5.1 Where to break
+>The prime directive of line-wrapping is: prefer to break at a higher syntactic level. Also:  
+1.When a line is broken at a non-assignment operator the break comes before the symbol. (Note that this is not the same practice used in Google style for other languages, such as C++ and JavaScript.)  
+This also applies to the following "operator-like" symbols:  
+*the dot separator (.)  
+*the two colons of a method reference (::)  
+*an ampersand in a type bound (<T extends Foo & Bar>)  
+*a pipe in a catch block (catch (FooException | BarException e)).  
+2.When a line is broken at an assignment operator the break typically comes after the symbol, but either way is acceptable.  
+This also applies to the "assignment-operator-like" colon in an enhanced for ("foreach") statement.
+3.A method or constructor name stays attached to the open parenthesis (() that follows it.  
+4.A comma (,) stays attached to the token that precedes it.  
+5.A line is never broken adjacent to the arrow in a lambda, except that a break may come immediately after the arrow if the body of the lambda consists of a single unbraced expression. Examples:  
+```java
+MyLambda<String, Long, Object> lambda =
+    (String label, Long value, Object obj) -> {
+        ...
+    };
+
+Predicate<String> predicate = str ->
+    longExpressionInvolving(str);
+```
+>Note: The primary goal for line wrapping is to have clear code, not necessarily code that fits in the smallest number of lines.
+
+### 4.5.2  Indent continuation lines at least +4 spaces
+>When line-wrapping, each line after the first (each continuation line) is indented at least +4 from the original line.  
+When there are multiple continuation lines, indentation may be varied beyond +4 as desired. In general, two continuation lines use the same indentation level if and only if they begin with syntactically parallel elements.  
+Section 4.6.3 on Horizontal alignment addresses the discouraged practice of using a variable number of spaces to align certain tokens with previous lines.
+
 
