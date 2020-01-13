@@ -67,6 +67,18 @@ xdebug.remote_port = 9999
 * Ctrl+shift+U 选中的内容大小写切换
 * Ctrl+E 最近打开的文件
 * Ctrl+Q 显示详细的函数说明
+* Ctrl+P 线上函数参数
+* Ctrl+Alt+Left/Right Navigation back/forward
+* Alt+Right/Left Navigation between opened tabs
+* Ctrl+Shift+Up/Down Move the current line of code
+* Ctrl+Alt+V Extract variable
+* Ctrl+Alt+F Extract field
+* Ctrl+Alt+M Extract Method
+* Ctrl+Alt+C Extract a constant
+* Ctrl+Alt+P Extract a parameter
+* Ctrl+Alt+N inline
+* F5 Copy
+* F6 Move
 
 ## **Live Template**
 ### 参考文档：https://www.jetbrains.com/help/idea/using-live-templates.html
