@@ -224,16 +224,30 @@ Examples:
 ## 4.2 Block indentation: +2 spaces
 >Each time a new block or block-like construct is opened, the indent increases by two spaces. When the block ends, the indent returns to the previous indent level. The indent level applies to both code and comments throughout the block. (See the example in Section 4.1.2, Nonempty blocks: K & R Style.)
 
+每次一个新的代码块或者块状结构开始后，缩进要增加2个空格。当语句块结束时缩进要恢复原来的水平。缩进水平对于块中的代码和注释都有效。（见4.1.2节的示例，非空块：K&R风格。）
+
 ## 4.3 One statement per line
 >Each statement is followed by a line break.  
+每个语句后面要跟一个换行
 
 ## 4.4 Column limit: 100
->Java code has a column limit of 100 characters. A "character" means any Unicode code point. Except as noted below, any line that would exceed this limit must be line-wrapped, as explained in Section 4.5, Line-wrapping.
->>Each Unicode code point counts as one character, even if its display width is greater or less. For example, if using fullwidth characters, you may choose to wrap the line earlier than where this rule strictly requires.   
-Exceptions:  
+>Java code has a column limit of 100 characters. A "character" means any Unicode code point. Except as noted below, any line that would exceed this limit must be line-wrapped, as explained in Section 4.5, Line-wrapping. 
+>>Each Unicode code point counts as one character, even if its display width is greater or less. For example, if using fullwidth characters, you may choose to wrap the line earlier than where this rule strictly requires.
+>Exceptions:  
 1.Lines where obeying the column limit is not possible (for example, a long URL in Javadoc, or a long JSNI method reference).  
 2.package and import statements (see Sections 3.2 Package statement and 3.3 Import statements).  
 3.Command lines in a comment that may be cut-and-pasted into a shell.  
 
+java代码有100个字符的列数限制。一个“字符”表示任意的unicode代码。除了下面特殊说明的外，任何超过这个限制的行都必须换行，就像4.5节-换行所说的那样。
+>每个unicode码都算作一个字符，即使它的显示宽度或大或小。例如，如果使用全角字符，你可以选择比规则要求的更早些换行。  
+例外:  
+1. 所有的行都遵守列数限制是不可能的(例如,Javadoc里的长URL，或者一个长的JSNI方法引用).
+2. 包语句和引入语句
+3. 注释里一些会被剪切和粘贴到shell里的命令行
 
+## 4.5 Line-wrapping
+>Terminology Note: When code that might otherwise legally occupy a single line is divided into multiple lines, this activity is called line-wrapping.  
+There is no comprehensive, deterministic formula showing exactly how to line-wrap in every situation. Very often there are several valid ways to line-wrap the same piece of code.
+>Note: While the typical reason for line-wrapping is to avoid overflowing the column limit, even code that would in fact fit within the column limit may be line-wrapped at the author's discretion.
+>Tip: Extracting a method or local variable may solve the problem without the need to line-wrap.
 
