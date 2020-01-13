@@ -79,6 +79,10 @@ xdebug.remote_port = 9999
 * Ctrl+Alt+N inline
 * F5 Copy
 * F6 Move
+* Ctrl+Alt+L Reformat code
+* Ctrl+Alt+I Auto-indent lines
+* Ctrl+Alt+O Optimize imports
+
 
 ## **Live Template**
 ### 参考文档：https://www.jetbrains.com/help/idea/using-live-templates.html
