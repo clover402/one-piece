@@ -159,7 +159,7 @@ What is important is that each class uses some logical order, which its maintain
 ### 4.1.1 Braces are used where optional
 >Braces are used with if, else, for, do and while statements, even when the body is empty or contains only a single statement.
 
-括号用于if、else、for、do和while语句，甚至当方法体是空的或者只包含一个语句时。
+大括号用于if、else、for、do和while语句，甚至当方法体是空的或者只包含一个语句时。
 
 ### 4.1.2 Nonempty blocks: K & R style
 >Braces follow the Kernighan and Ritchie style ("Egyptian brackets") for nonempty blocks and block-like constructs:  
@@ -168,5 +168,59 @@ What is important is that each class uses some logical order, which its maintain
 * Line break before the closing brace.  
 * Line break after the closing brace, only if that brace terminates a statement or terminates the body of a method, constructor, or named class. For example, there is no line break after the brace if it is followed by else or a comma.  
 
+对于非空块和块状结构大括号尊重K&R风格：
+* 在左括号之前不换行
+* 在左括号之后换行
+* 在右括号之前换行
+* 在右括号之后换行，只有在括号结束了一个语句或者方法体、构造函数或者有名类时。例如，如果括号后面跟了else或者逗号，那么就没有换行
+
+Examples:
+```java
+return () -> {
+  while (condition()) {
+    method();
+  }
+};
+
+return new MyClass() {
+  @Override public void method() {
+    if (condition()) {
+      try {
+        something();
+      } catch (ProblemException e) {
+        recover();
+      }
+    } else if (otherCondition()) {
+      somethingElse();
+    } else {
+      lastThing();
+    }
+  }
+};
+```
+>A few exceptions for enum classes are given in Section 4.8.1, Enum classes.  
+
+对于来自“4.8.1节(枚举类)”的枚举类有几个例外  
+
+### 4.1.3 Empty blocks: may be concise(简明的)
+>An empty block or block-like construct may be in K & R style (as described in Section 4.1.2). Alternatively, it may be closed immediately after it is opened, with no characters or line break in between ({}), unless it is part of a multi-block statement (one that directly contains multiple blocks: if/else or try/catch/finally).  
+
+空的语句块或块状结构可以使用K&R风格(如4.1.2节描述的那样)。可选的，它也可以左括号之后马上跟上右括号，在两个括号（{}）之间没有字符和换行，除非它是多块状语句（一个包含了多个代码块的语句：if/else 或者 try/catch/finally）的一部分。  
+
+Examples:
+```java
+  // This is acceptable
+  void doNothing() {}
+
+  // This is equally acceptable
+  void doNothingElse() {
+  }
+  
+  // This is not acceptable: No concise empty blocks in a multi-block statement
+  try {
+    doSomething();
+  } catch (Exception e) {}
+```
+## 4.2 Block indentation: +2 spaces
 
 
