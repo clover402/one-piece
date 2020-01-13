@@ -233,6 +233,7 @@ Examples:
 ## 4.4 Column limit: 100
 >Java code has a column limit of 100 characters. A "character" means any Unicode code point. Except as noted below, any line that would exceed this limit must be line-wrapped, as explained in Section 4.5, Line-wrapping. 
 >>Each Unicode code point counts as one character, even if its display width is greater or less. For example, if using fullwidth characters, you may choose to wrap the line earlier than where this rule strictly requires.
+
 >Exceptions:  
 1.Lines where obeying the column limit is not possible (for example, a long URL in Javadoc, or a long JSNI method reference).  
 2.package and import statements (see Sections 3.2 Package statement and 3.3 Import statements).  
@@ -248,6 +249,8 @@ java代码有100个字符的列数限制。一个“字符”表示任意的unic
 ## 4.5 Line-wrapping
 >Terminology Note: When code that might otherwise legally occupy a single line is divided into multiple lines, this activity is called line-wrapping.  
 There is no comprehensive, deterministic formula showing exactly how to line-wrap in every situation. Very often there are several valid ways to line-wrap the same piece of code.
+
 >Note: While the typical reason for line-wrapping is to avoid overflowing the column limit, even code that would in fact fit within the column limit may be line-wrapped at the author's discretion.
+
 >Tip: Extracting a method or local variable may solve the problem without the need to line-wrap.
 
