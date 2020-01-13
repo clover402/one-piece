@@ -125,4 +125,7 @@ FUNCTIONS SHOULD DO ONE THING.THEY SHOULD DO IT WELL.THEY SHOULD DO IT ONLY.
 只干一件事的函数是不能被合理的分成多个部分的
 
 ## One Level of Abstraction per Function
+每个函数要使用同一水平的抽象  
+
+## Reading Code from Top to Bottom: The Stepdown Rule
 
