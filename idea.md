@@ -83,6 +83,7 @@ xdebug.remote_port = 9999
 * Ctrl+Alt+I Auto-indent lines
 * Ctrl+Alt+O Optimize imports
 * Ctrl+Shift+A find action
+* Ctrl+Shif+Left/Right/Up/Down resize window
 
 
 ## **Live Template**
