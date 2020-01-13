@@ -150,5 +150,23 @@ What is important is that each class uses some logical order, which its maintain
 当一个类有多个构造函数或者多个同名方法时，这些方法按顺序出现，在它们之间没有别的代码（甚至是一个私有成员）。
 
 
+# 4 Formatting
+>Terminology Note: block-like construct refers to the body of a class, method or constructor. Note that, by Section 4.8.3.1 on array initializers, any array initializer may optionally be treated as if it were a block-like construct.  
+
+术语说明：块状结构指的是类、方法或者构造函数的内容。注意，依据 4.8.3.1关于数组初始化的内容，任何数组初始化块可以选择性的被作为一个块状结构。
+
+## 4.1 Braces
+### 4.1.1 Braces are used where optional
+>Braces are used with if, else, for, do and while statements, even when the body is empty or contains only a single statement.
+
+括号用于if、else、for、do和while语句，甚至当方法体是空的或者只包含一个语句时。
+
+### 4.1.2 Nonempty blocks: K & R style
+>Braces follow the Kernighan and Ritchie style ("Egyptian brackets") for nonempty blocks and block-like constructs:  
+* No line break before the opening brace.  
+* Line break after the opening brace.  
+* Line break before the closing brace.  
+* Line break after the closing brace, only if that brace terminates a statement or terminates the body of a method, constructor, or named class. For example, there is no line break after the brace if it is followed by else or a comma.  
+
 
 
