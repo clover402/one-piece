@@ -355,19 +355,37 @@ but not
 超越了语言或者其他风格规则，除了字面值、注释和Javadoc外，一个ASCII空格只会出现在如下地方：
 1. 分隔任何保留字，例如if、for或者catch，与这行中跟在它后面的左小括号（(）
 2. 分隔任何保留字，例如else或catch，与这行中在它之前的右大括号（}）
-3. 在任何左大括号之前（{），但又2个例外：
+3. 在任何左大括号之前（{），但又2个例外：  
 * @SomeAnnotation({a,b}) (注解后面的大括号不用加空格)
 * String[][] x = {{"foo"}};(二维数组初始化时的两个大括号之间不用加空格)
-4. 在任意二元或三元运算符的两边。这也适用于下面类似运算符的符号：
+4. 在任意二元或三元运算符的两边。这也适用于下面类似运算符的符号：  
 * 在类型限定的连接符&：<T extends Foo & Bar>
 * 处理多个异常的catch语句块中的管道符号|：catch(FooException | BarException e)
 * 在加强版for语句（foreach）中的冒号：
 * lambda表达式中的箭头：(String str) -> str.length()  
-
 不适用于如下：
 * 表示方法引用的两个冒号::，应该这样写Object::toString
 * 点运算符（.），应该这样写object.toString()
 5. 在逗号冒号和分号（,:;）后面，或者强制类型转换的右括号（)）
-6. 在双斜杠（//）的两边
+6. 来自行尾注释的双斜杠（//）的两边。这里多个空格时允许的，但不是必须的
+7. 在类型和变量声明之间： List<String> list
+8. 数组初始化的两个括号里面的空格是可选的。 new int[] {5, 6} 和 new int[] { 5, 6 } 都是合法的
+9. 在类型说明和[] 或者...之间  
+
+此规则在一行的开头或者结尾不会因为需要或者禁止额外的空格而打断；它只适用于内部的空格  
+
+### 4.6.3 Horizontal alignment: never required
+>**Terminology Note:** Horizontal alignment is the practice of adding a variable number of additional spaces in your code with the goal of making certain tokens appear directly below certain other tokens on previous lines.  
+This practice is permitted, but is never required by Google Style. It is not even required to maintain horizontal alignment in places where it was already used.  
+Here is an example without alignment, then using alignment:
+```java
+private int x; // this is fine
+private Color color; // this too
+
+private int   x;      // permitted, but future edits
+private Color color;  // may leave it unaligned
+```
+>**Tip:** Alignment can aid readability, but it creates problems for future maintenance. Consider a future change that needs to touch just one line. This change may leave the formerly-pleasing formatting mangled, and that is allowed. More often it prompts the coder (perhaps you) to adjust whitespace on nearby lines as well, possibly triggering a cascading series of reformattings. That one-line change now has a "blast radius." This can at worst result in pointless busywork, but at best it still corrupts version history information, slows down reviewers and exacerbates merge conflicts.
+
 
 
