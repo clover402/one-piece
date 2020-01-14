@@ -334,8 +334,8 @@ Multiple consecutive blank lines are permitted, but never required (or encourage
 1..Separating any reserved word, such as if, for or catch, from an open parenthesis (() that follows it on that line  
 2..Separating any reserved word, such as else or catch, from a closing curly brace (}) that precedes it on that line  
 3..Before any open curly brace ({), with two exceptions:  
-&nbsp;&nbsp;*&nbsp;@SomeAnnotation({a, b}) (no space is used)  
-&nbsp;&nbsp;*&nbsp;String[][] x = {{"foo"}}; (no space is required between {{, by item 8 below)  
+&nbsp;&nbsp;*@SomeAnnotation({a, b}) (no space is used)  
+&nbsp;&nbsp;*String[][] x = {{"foo"}}; (no space is required between {{, by item 8 below)  
 4..On both sides of any binary or ternary operator. This also applies to the following "operator-like" symbols:  
 &nbsp;&nbsp;*the ampersand in a conjunctive type bound: <T extends Foo & Bar>  
 &nbsp;&nbsp;*the pipe for a catch block that handles multiple exceptions: catch (FooException | BarException e)  
@@ -352,5 +352,8 @@ but not
 9..Between a type annotation and [] or ....  
   This rule is never interpreted as requiring or forbidding additional space at the start or end of a line; it addresses only interior space.  
   
-  
+超越了语言或者其他风格规则，除了字面值、注释和Javadoc外，一个ASCII空格只会出现在如下地方：
+1. 分隔任何保留字，例如if、for或者catch，与这行中跟在它后面的左小括号（(）
+2. 分隔任何保留字，例如else或catch，与这行中在它之前的右大括号（}）
+3. 
 
