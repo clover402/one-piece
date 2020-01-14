@@ -312,4 +312,15 @@ Section 4.6.3 on Horizontal alignment addresses the discouraged practice of usin
 
 ## 4.6 Whitespace
 ### 4.6.1 Vertical Whitespace
+>A single blank line always appears:  
+1..Between consecutive members or initializers of a class: fields, constructors, methods, nested classes, static initializers, and instance initializers.  
+&nbsp;&nbsp;*Exception: A blank line between two consecutive fields (having no other code between them) is optional. Such blank lines are used as needed to create logical groupings of fields.  
+&nbsp;&nbsp;*Exception: Blank lines between enum constants are covered in Section 4.8.1.  
+2..As required by other sections of this document (such as Section 3, Source file structure, and Section 3.3, Import statements).  
+A single blank line may also appear anywhere it improves readability, for example between statements to organize the code into logical subsections. A blank line before the first member or initializer, or after the last member or initializer of the class, is neither encouraged nor discouraged.  
+Multiple consecutive blank lines are permitted, but never required (or encouraged).  
+
+
+
+### 4.6.2 Horizontal whitespace
 
