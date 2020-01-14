@@ -466,12 +466,19 @@ new int[] {             3,
 ### 4.8.4 Switch statement
 >**Terminology Note:** Inside the braces of a switch block are one or more statement groups. Each statement group consists of one or more switch labels (either case FOO: or default:), followed by one or more statements (or, for the last statement group, zero or more statements).
 
+术语说明：在一个switch语句块的括号里是一个或者多个语句组。每个语句组由一个或者多个switch标签（要么是case FOO:要么是default:),后面跟一个或者多个语句（或者，对于最后一个语句组，零个或多个语句）。
+
 #### 4.8.4.1 Indentation
 >As with any other block, the contents of a switch block are indented +2.  
 After a switch label, there is a line break, and the indentation level is increased +2, exactly as if a block were being opened. The following switch label returns to the previous indentation level, as if a block had been closed.
 
+像其他语句块一样，switch语句块的内容的缩进增加2个空格。  
+在一个switch标签后，有一个换行，缩进级别再增加2个空格，就像是一个语句块开始一样。后面跟随的switch标签恢复到原先的缩进水平，就像一个语句块结束时那样。
+
 #### 4.8.4.2 Fall-through: commented
 >Within a switch block, each statement group either terminates abruptly (with a break, continue, return or thrown exception), or is marked with a comment to indicate that execution will or might continue into the next statement group. Any comment that communicates the idea of fall-through is sufficient (typically // fall through). This special comment is not required in the last statement group of the switch block. Example:
+
+再一个switch语句块内，每个语句组要么突然的结束（用一个break、continue、return或者throw exception），要么用一个注释标记去表明执行会或者可能继续到下一个语句组。任何表达贯穿含义的注释都是足够的（典型的 // fall through）。对于最后一个语句组这个特别的注释不是必须的。例如：
 
 ```java
 switch (input) {
@@ -486,12 +493,76 @@ switch (input) {
     handleLargeNumber(input);
 }
 ```
->Notice that no comment is needed after case 1:, only at the end of the statement group.
+>Notice that no comment is needed after case 1:, only at the end of the statement group.  
+
+注意再case 1:之后没有注释，仅仅再语句组的结尾才有。
 
 #### 4.8.4.3 The default case is present
 >Each switch statement includes a default statement group, even if it contains no code.  
 **Exception:** A switch statement for an enum type may omit the default statement group, if it includes explicit cases covering all possible values of that type. This enables IDEs or other static analysis tools to issue a warning if any cases were missed.
 
+每个switch语句都包含一个default语句组，即使它不包含任何代码。  
+**例外**： 一个switch语句对于枚举类型可以省略default语句组，如果它包含了能覆盖类型所有值得全部的case。如果由case缺少了会触发IDE或者其他静态分析工具报警。  
+
+
 ### 4.8.5 Annotations
+>Annotations applying to a class, method or constructor appear immediately after the documentation block, and each annotation is listed on a line of its own (that is, one annotation per line). These line breaks do not constitute line-wrapping (Section 4.5, Line-wrapping), so the indentation level is not increased. Example:
+
+用于类、方法或者构造函数得注解，在文档块后立即出现，每个注解单独一行。这些换行不算作折行，所以缩进级别不会增加。例如:
+
+```java
+@Override
+@Nullable
+public String getNameIfPresent() { ... }
+```
+
+>**Exception:** A single parameterless annotation may instead appear together with the first line of the signature, for example:
+
+**示例**： 单个没有参数得注解可以和它标记得内容同一行，例如：
+
+```java
+@Override public int hashCode() { ... }
+```
+
+>Annotations applying to a field also appear immediately after the documentation block, but in this case, multiple annotations (possibly parameterized) may be listed on the same line; for example:
+
+用于成员变量得注解也要在文档块后马上出现，但是对于成员变量，多注解（可能是有参数得）可以在同一行；例如:
+
+```java
+@Partial @Mock DataLoader loader;
+```
+
+>There are no specific rules for formatting annotations on parameters, local variables, or types.
+
+没有特别得规则对于格式化用于参数、局部变量或者类型得注解
+
+### 4.8.6 Comments
+>This section addresses implementation comments. Javadoc is addressed separately in Section 7, Javadoc.  
+Any line break may be preceded by arbitrary whitespace followed by an implementation comment. Such a comment renders the line non-blank.
+
+#### 4.8.6.1 Block comment style
+>Block comments are indented at the same level as the surrounding code. They may be in /* ... */ style or // ... style. For multi-line /* ... */ comments, subsequent lines must start with * aligned with the * on the previous line.
 
 
+```java
+/*
+ * This is          // And so           /* Or you can
+ * okay.            // is this.          * even do this. */
+ */
+```
+
+>Comments are not enclosed in boxes drawn with asterisks or other characters.  
+**Tip:** When writing multi-line comments, use the /* ... */ style if you want automatic code formatters to re-wrap the lines when necessary (paragraph-style). Most formatters don't re-wrap lines in // ... style comment blocks.  
+
+### 4.8.7 Modifiers
+>Class and member modifiers, when present, appear in the order recommended by the Java Language Specification:
+
+```java
+public protected private abstract default static final transient volatile synchronized native strictfp
+```
+
+### 4.8.8 Numeric Literals
+>long-valued integer literals use an uppercase L suffix, never lowercase (to avoid confusion with the digit 1). For example, 3000000000L rather than 3000000000l.
+
+# 5 Naming
+## 5.1 Rules common to all identifiers
