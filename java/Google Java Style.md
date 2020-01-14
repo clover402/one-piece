@@ -320,7 +320,37 @@ Section 4.6.3 on Horizontal alignment addresses the discouraged practice of usin
 A single blank line may also appear anywhere it improves readability, for example between statements to organize the code into logical subsections. A blank line before the first member or initializer, or after the last member or initializer of the class, is neither encouraged nor discouraged.  
 Multiple consecutive blank lines are permitted, but never required (or encouraged).  
 
+一个空行通常出现在：
+1. 一个类的连续成员或者初始化块之间：成员变量、构造函数、成员方法、内嵌类、静态初始化块和直接初始化
+* 例外：两个连续成员变量间的空行是可选的。这类空行是为了创建成员变量的逻辑分组而使用
+* 例外：枚举常量间的空行会在4.8.1节里面说明
+2. 根据此文档的其他章节所需（例如第三章，源文件结构，3.3节，导入语句）  
 
+一个空行可以出现在任意可以增加可读性的位置，例如在组织代码到多个逻辑块的语句间。类中在第一个成员或初始化语句之前的空行，或者是最后一个成员或者初始化语句之后的空行既不鼓励也不反对。  
+多个连续空行是允许的，但是不需要（不鼓励）
 
 ### 4.6.2 Horizontal whitespace
+>Beyond where required by the language or other style rules, and apart from literals, comments and Javadoc, a single ASCII space also appears in the following places only.  
+1..Separating any reserved word, such as if, for or catch, from an open parenthesis (() that follows it on that line  
+2..Separating any reserved word, such as else or catch, from a closing curly brace (}) that precedes it on that line  
+3..Before any open curly brace ({), with two exceptions:  
+&nbsp;&nbsp;*&nbsp;@SomeAnnotation({a, b}) (no space is used)  
+&nbsp;&nbsp;&nbsp;String[][] x = {{"foo"}}; (no space is required between {{, by item 8 below)
+4..On both sides of any binary or ternary operator. This also applies to the following "operator-like" symbols:  
+&nbsp;&nbsp;*&nbsp;the ampersand in a conjunctive type bound: <T extends Foo & Bar>  
+&nbsp;&nbsp;*&nbsp;the pipe for a catch block that handles multiple exceptions: catch (FooException | BarException e)  
+&nbsp;&nbsp;*&nbsp;the colon (:) in an enhanced for ("foreach") statement  
+&nbsp;&nbsp;*&nbsp;the arrow in a lambda expression: (String str) -> str.length()  
+but not  
+&nbsp;&nbsp;*&nbsp;the two colons (::) of a method reference, which is written like Object::toString  
+&nbsp;&nbsp;*&nbsp;the dot separator (.), which is written like object.toString()  
+5..After ,:; or the closing parenthesis ()) of a cast  
+6..On both sides of the double slash (//) that begins an end-of-line comment. Here, multiple spaces are allowed, but not required.  
+7..Between the type and variable of a declaration: List<String> list  
+8..Optional just inside both braces of an array initializer  
+  &nbsp;&nbsp;new int[] {5, 6} and new int[] { 5, 6 } are both valid  
+9..Between a type annotation and [] or ....  
+  This rule is never interpreted as requiring or forbidding additional space at the start or end of a line; it addresses only interior space.  
+  
+  
 
