@@ -540,9 +540,13 @@ public String getNameIfPresent() { ... }
 >This section addresses implementation comments. Javadoc is addressed separately in Section 7, Javadoc.  
 Any line break may be preceded by arbitrary whitespace followed by an implementation comment. Such a comment renders the line non-blank.
 
+这一节讲得是注释得写法。Javadoc会单独在第七章 Javadoc里面说明。  
+任意一个跟随注释得空格之前都可以换行。这样一个注释渲染出了非空行。
+
 #### 4.8.6.1 Block comment style
 >Block comments are indented at the same level as the surrounding code. They may be in /* ... */ style or // ... style. For multi-line /* ... */ comments, subsequent lines must start with * aligned with the * on the previous line.
 
+块状注释要在代码周围以同样的水平缩进。他们可能是/*...*/风格，或者//...风格。对于多行的 /*...*/注释，随后的行必须以*开头，并且跟之前行的*对齐
 
 ```java
 /*
@@ -553,6 +557,9 @@ Any line break may be preceded by arbitrary whitespace followed by an implementa
 
 >Comments are not enclosed in boxes drawn with asterisks or other characters.  
 **Tip:** When writing multi-line comments, use the /* ... */ style if you want automatic code formatters to re-wrap the lines when necessary (paragraph-style). Most formatters don't re-wrap lines in // ... style comment blocks.  
+
+注释不要在用*或者其他字符围起来的盒子里。  
+提示：当写多行注释时，如果你想代码格式化自动包裹那些行时使用/*...*/风格
 
 ### 4.8.7 Modifiers
 >Class and member modifiers, when present, appear in the order recommended by the Java Language Specification:
