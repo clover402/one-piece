@@ -377,7 +377,12 @@ but not
 ### 4.6.3 Horizontal alignment: never required
 >**Terminology Note:** Horizontal alignment is the practice of adding a variable number of additional spaces in your code with the goal of making certain tokens appear directly below certain other tokens on previous lines.  
 This practice is permitted, but is never required by Google Style. It is not even required to maintain horizontal alignment in places where it was already used.  
-Here is an example without alignment, then using alignment:
+Here is an example without alignment, then using alignment:  
+
+术语说明：水平对齐指的是在代码中增加一个变化数量的额外空格，为了达到使某些标识符直接出现在前一行某些其他标识符的下方的目标。  
+这个是允许的，但对于谷歌风格不是必须的。甚至不需要去维护水平对齐在已经使用过它的地方  
+下面是一个没有对齐的例子，然后是一个对齐的例子
+
 ```java
 private int x; // this is fine
 private Color color; // this too
@@ -387,5 +392,61 @@ private Color color;  // may leave it unaligned
 ```
 >**Tip:** Alignment can aid readability, but it creates problems for future maintenance. Consider a future change that needs to touch just one line. This change may leave the formerly-pleasing formatting mangled, and that is allowed. More often it prompts the coder (perhaps you) to adjust whitespace on nearby lines as well, possibly triggering a cascading series of reformattings. That one-line change now has a "blast radius." This can at worst result in pointless busywork, but at best it still corrupts version history information, slows down reviewers and exacerbates merge conflicts.
 
+提示：对齐以可读性为目标，但它为将来的维护带来了问题。考虑下将来的修改只需要改变一行。这个修改可能会带来先前愉快的格式化被破坏，但这是允许的。它会更频繁的提示程序员（也许是你）去校正附近行的空格，可能会导致级联的格式化。这个一行的修改现在导致“大爆炸”。最坏这个会会导致无意义的忙碌，最好它也会破坏历史版本信息，降低阅读者速度以及加剧代码冲突。
 
+## 4.7 Grouping parentheses: recommended
+>Optional grouping parentheses are omitted only when author and reviewer agree that there is no reasonable chance the code will be misinterpreted without them, nor would they have made the code easier to read. It is not reasonable to assume that every reader has the entire Java operator precedence table memorized.
+
+可选的分组括号只有当作者和读者在下面这件事上达成一致才能省略，没有它们不会导致误解，没有他们也不会让代码更好读。去假设每个读者都记得整个java操作符优先级是不合理的。
+
+## 4.8 Specific constucts
+### 4.8.1 Enum classes
+>After each comma that follows an enum constant, a line break is optional. Additional blank lines (usually just one) are also allowed. This is one possibility:
+
+在每个跟随枚举常量的逗号后面，换行是可选的。额外的空行（通常只有一行J）也是允许的。下面是一种可能：
+```java
+private enum Answer {
+  YES {
+    @Override public String toString() {
+      return "yes";
+    }
+  },
+
+  NO,
+  MAYBE
+}
+```
+>An enum class with no methods and no documentation on its constants may optionally be formatted as if it were an array initializer (see Section 4.8.3.1 on array initializers).
+
+```java
+private enum Suit { CLUBS, HEARTS, SPADES, DIAMONDS }
+```
+>Since enum classes are classes, all other rules for formatting classes apply.
+
+### 4.8.2 Variable declarations
+#### 4.8.2.1 One variable per declaration
+>Every variable declaration (field or local) declares only one variable: declarations such as int a, b; are not used.  
+Exception: Multiple variable declarations are acceptable in the header of a for loop.
+
+#### 4.8.2.2 Declared when needed
+>Local variables are not habitually declared at the start of their containing block or block-like construct. Instead, local variables are declared close to the point they are first used (within reason), to minimize their scope. Local variable declarations typically have initializers, or are initialized immediately after declaration.
+
+### 4.8.3 Arrays
+#### 4.8.3.1 Array initializers: can be "block-like"
+>Any array initializer may optionally be formatted as if it were a "block-like construct." For example, the following are all valid (not an exhaustive list):
+
+```java
+new int[] {           new int[] {
+  0, 1, 2, 3            0,
+}                       1,
+                        2,
+new int[] {             3,
+  0, 1,               }
+  2, 3
+}                     new int[]
+                          {0, 1, 2, 3}
+```
+
+#### 4.8.3.2 No C-style array declarations
+>The square brackets form a part of the type, not the variable: String[] args, not String args[].
 
