@@ -418,22 +418,33 @@ private enum Answer {
 ```
 >An enum class with no methods and no documentation on its constants may optionally be formatted as if it were an array initializer (see Section 4.8.3.1 on array initializers).
 
+没有方法和文档的枚举类可以选择性的像一个数组初始化那样格式化（见4.8.3.1节的数组初始化）
+
 ```java
 private enum Suit { CLUBS, HEARTS, SPADES, DIAMONDS }
 ```
 >Since enum classes are classes, all other rules for formatting classes apply.
+
+因为枚举类也是类，所以所有格式化类的规则对它都适用
 
 ### 4.8.2 Variable declarations
 #### 4.8.2.1 One variable per declaration
 >Every variable declaration (field or local) declares only one variable: declarations such as int a, b; are not used.  
 Exception: Multiple variable declarations are acceptable in the header of a for loop.
 
+每个变量声明（成员变量或者局部变量）只声明一个变量：这样的声明不能用（int a, b;）  
+例外：在for循环的头部多变量的声明是可以被接受的
+
 #### 4.8.2.2 Declared when needed
 >Local variables are not habitually declared at the start of their containing block or block-like construct. Instead, local variables are declared close to the point they are first used (within reason), to minimize their scope. Local variable declarations typically have initializers, or are initialized immediately after declaration.
+
+局部变量不要顺手的声明在代码块或者块状结构的开头。而应该声明在靠近第一次使用的地方，为了减小他们的作用域。一般来说局部变量声明包含初始化，或者在声明后马上初始化。
 
 ### 4.8.3 Arrays
 #### 4.8.3.1 Array initializers: can be "block-like"
 >Any array initializer may optionally be formatted as if it were a "block-like construct." For example, the following are all valid (not an exhaustive list):
+
+一个数组的初始化可以选择性的就像一个块状结构那样格式化。例如，如下是合法的（并不是全部的列表）
 
 ```java
 new int[] {           new int[] {
@@ -449,4 +460,38 @@ new int[] {             3,
 
 #### 4.8.3.2 No C-style array declarations
 >The square brackets form a part of the type, not the variable: String[] args, not String args[].
+
+方括号构成了类型的一部分，而不是变量的一部分：String[] args， 而不是 String args[]。
+
+### 4.8.4 Switch statement
+>**Terminology Note:** Inside the braces of a switch block are one or more statement groups. Each statement group consists of one or more switch labels (either case FOO: or default:), followed by one or more statements (or, for the last statement group, zero or more statements).
+
+#### 4.8.4.1 Indentation
+>As with any other block, the contents of a switch block are indented +2.  
+After a switch label, there is a line break, and the indentation level is increased +2, exactly as if a block were being opened. The following switch label returns to the previous indentation level, as if a block had been closed.
+
+#### 4.8.4.2 Fall-through: commented
+>Within a switch block, each statement group either terminates abruptly (with a break, continue, return or thrown exception), or is marked with a comment to indicate that execution will or might continue into the next statement group. Any comment that communicates the idea of fall-through is sufficient (typically // fall through). This special comment is not required in the last statement group of the switch block. Example:
+
+```java
+switch (input) {
+  case 1:
+  case 2:
+    prepareOneOrTwo();
+    // fall through
+  case 3:
+    handleOneTwoOrThree();
+    break;
+  default:
+    handleLargeNumber(input);
+}
+```
+>Notice that no comment is needed after case 1:, only at the end of the statement group.
+
+#### 4.8.4.3 The default case is present
+>Each switch statement includes a default statement group, even if it contains no code.  
+**Exception:** A switch statement for an enum type may omit the default statement group, if it includes explicit cases covering all possible values of that type. This enables IDEs or other static analysis tools to issue a warning if any cases were missed.
+
+### 4.8.5 Annotations
+
 
