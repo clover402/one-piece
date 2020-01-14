@@ -544,9 +544,9 @@ Any line break may be preceded by arbitrary whitespace followed by an implementa
 任意一个跟随注释得空格之前都可以换行。这样一个注释渲染出了非空行。
 
 #### 4.8.6.1 Block comment style
->Block comments are indented at the same level as the surrounding code. They may be in /* ... */ style or // ... style. For multi-line /* ... */ comments, subsequent lines must start with * aligned with the * on the previous line.
+>Block comments are indented at the same level as the surrounding code. They may be in /\* ... \*/ style or // ... style. For multi-line /\* ... \*/ comments, subsequent lines must start with * aligned with the * on the previous line.
 
-块状注释要在代码周围以同样的水平缩进。他们可能是/*...*/风格，或者//...风格。对于多行的 /*...*/注释，随后的行必须以*开头，并且跟之前行的*对齐
+块状注释要在代码周围以同样的水平缩进。他们可能是/\*...\*/风格，或者//...风格。对于多行的 /\*...\*/注释，随后的行必须以\*开头，并且跟之前行的\*对齐
 
 ```java
 /*
@@ -556,13 +556,15 @@ Any line break may be preceded by arbitrary whitespace followed by an implementa
 ```
 
 >Comments are not enclosed in boxes drawn with asterisks or other characters.  
-**Tip:** When writing multi-line comments, use the /* ... */ style if you want automatic code formatters to re-wrap the lines when necessary (paragraph-style). Most formatters don't re-wrap lines in // ... style comment blocks.  
+**Tip:** When writing multi-line comments, use the /\* ... \*/ style if you want automatic code formatters to re-wrap the lines when necessary (paragraph-style). Most formatters don't re-wrap lines in // ... style comment blocks.  
 
-注释不要在用*或者其他字符围起来的盒子里。  
-提示：当写多行注释时，如果你想代码格式化自动包裹那些行时使用/*...*/风格
+注释不要在用\*或者其他字符围起来的盒子里。  
+提示：当写多行注释时，如果你想需要时代码格式化自动包裹那些行时使用/\*...\*/风格。在//风格注释语句块时大多数格式化不会自动包裹行
 
 ### 4.8.7 Modifiers
 >Class and member modifiers, when present, appear in the order recommended by the Java Language Specification:
+
+类和成员的修饰语，当存在时，应该以Java Language Specification推荐的顺序出现
 
 ```java
 public protected private abstract default static final transient volatile synchronized native strictfp
@@ -570,6 +572,8 @@ public protected private abstract default static final transient volatile synchr
 
 ### 4.8.8 Numeric Literals
 >long-valued integer literals use an uppercase L suffix, never lowercase (to avoid confusion with the digit 1). For example, 3000000000L rather than 3000000000l.
+
+long类型值整型字母值使用一个大写得L后缀，不要使用小写（避免于数字1混淆）。例如 3000000000L 而不是 3000000000l.
 
 # 5 Naming
 ## 5.1 Rules common to all identifiers
