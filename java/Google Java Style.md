@@ -337,13 +337,13 @@ Multiple consecutive blank lines are permitted, but never required (or encourage
 &nbsp;&nbsp;*&nbsp;@SomeAnnotation({a, b}) (no space is used)  
 &nbsp;&nbsp;&nbsp;String[][] x = {{"foo"}}; (no space is required between {{, by item 8 below)
 4..On both sides of any binary or ternary operator. This also applies to the following "operator-like" symbols:  
-&nbsp;&nbsp;*&nbsp;the ampersand in a conjunctive type bound: <T extends Foo & Bar>  
-&nbsp;&nbsp;*&nbsp;the pipe for a catch block that handles multiple exceptions: catch (FooException | BarException e)  
-&nbsp;&nbsp;*&nbsp;the colon (:) in an enhanced for ("foreach") statement  
-&nbsp;&nbsp;*&nbsp;the arrow in a lambda expression: (String str) -> str.length()  
+&nbsp;&nbsp;*the ampersand in a conjunctive type bound: <T extends Foo & Bar>  
+&nbsp;&nbsp;*the pipe for a catch block that handles multiple exceptions: catch (FooException | BarException e)  
+&nbsp;&nbsp;*the colon (:) in an enhanced for ("foreach") statement  
+&nbsp;&nbsp;*the arrow in a lambda expression: (String str) -> str.length()  
 but not  
-&nbsp;&nbsp;*&nbsp;the two colons (::) of a method reference, which is written like Object::toString  
-&nbsp;&nbsp;*&nbsp;the dot separator (.), which is written like object.toString()  
+&nbsp;&nbsp;*the two colons (::) of a method reference, which is written like Object::toString  
+&nbsp;&nbsp;*the dot separator (.), which is written like object.toString()  
 5..After ,:; or the closing parenthesis ()) of a cast  
 6..On both sides of the double slash (//) that begins an end-of-line comment. Here, multiple spaces are allowed, but not required.  
 7..Between the type and variable of a declaration: List<String> list  
