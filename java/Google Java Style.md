@@ -580,6 +580,9 @@ long类型值整型字母值使用一个大写得L后缀，不要使用小写（
 >Identifiers use only ASCII letters and digits, and, in a small number of cases noted below, underscores. Thus each valid identifier name is matched by the regular expression \w+ .  
 In Google Style, special prefixes or suffixes are not used. For example, these names are not Google Style: name_, mName, s_name and kName.
 
+标识符只使用ascii码字母和数字，和下面少量出现得下划线。但每个合法标识符得名字都可以被正则表达式 \w 匹配。  
+在谷歌风格，特殊得前缀和后缀都不要使用。例如，这些命名不是谷歌风格：name_, mName s_name 和 kName。
+
 ## 5.2 Rules by identifier type
 ### 5.2.1 Package names
 >Package names are all lowercase, with consecutive words simply concatenated together (no underscores). For example, com.example.deepspace, not com.example.deepSpace or com.example.deep_space.
