@@ -615,7 +615,7 @@ Underscores may appear in JUnit test method names to separate logical components
 Constants are static final fields whose contents are deeply immutable and whose methods have no detectable side effects. This includes primitives, Strings, immutable types, and immutable collections of immutable types. If any of the instance's observable state can change, it is not a constant. Merely intending to never mutate the object is not enough. Examples:  
 
 常量名使用常量样式（CONSTANT_CASE）：所有的字母大写，每个单词使用一个下划线与下一个分隔。但是准确来说什么是常量呢？   
-常量是静态的final字段，他们的内容是不能变的，他们的方法没有可察觉的副作用。这个包括
+常量是静态的final字段，他们的内容是不能变的，他们的方法没有可察觉的副作用。这个包括原始类型、字符串类型、不可变类型，和不可变类型的不可变集合。如果任意一个可见的实例状态可以改变，它就不是一个常量。仅仅意图不改变对象是不够的。例如：
 
 ```java
 // Constants
@@ -638,22 +638,37 @@ static final String[] nonEmptyArray = {"these", "can", "change"};
 ```
 >These names are typically nouns or noun phrases.
 
+这些命名一般是名词或名词短语
+
 ### 5.2.5 Non-constant field names
 >Non-constant field names (static or otherwise) are written in lowerCamelCase.  
 These names are typically nouns or noun phrases. For example, computedValues or index.
+
+非常量字段命名(静态或非静态)使用小驼峰。  
+这些命名一般是名词或名词短语。例如：computedValues 或 index.
 
 ### 5.2.6 Parameter names
 >Parameter names are written in lowerCamelCase.  
 One-character parameter names in public methods should be avoided.
 
+参数命名使用小驼峰。  
+公共方法中单字符的变量命名要避免。
+
 ### 5.2.7 Local variable names
 >Local variable names are written in lowerCamelCase.  
 Even when final and immutable, local variables are not considered to be constants, and should not be styled as constants.
+
+局部变量使用小驼峰。  
+即使是final和不可变的，局部变量也不被看作常量，也不应该使用常量那样的风格。
 
 ### 5.2.8 Type variable names
 >Each type variable is named in one of two styles:  
 &nbsp;&nbsp;*A single capital letter, optionally followed by a single numeral (such as E, T, X, T2)  
 &nbsp;&nbsp;*A name in the form used for classes (see Section 5.2.2, Class names), followed by the capital letter T (examples: RequestT, FooBarT).  
+
+每个类型变量命名使用下面两种风格中的一种：  
+* 单个大写字母， 可选的跟一个数字（例如 E, T, X, T2）
+* 一个使用类形式的名字（见5.2.2节，类命名），后面跟一个大写字母T(例如： RequestT, FooBarT)
 
 ## 5.3 Camel case: defined
 >Sometimes there is more than one reasonable way to convert an English phrase into camel case, such as when acronyms or unusual constructs like "IPv6" or "iOS" are present. To improve predictability, Google Style specifies the following (nearly) deterministic scheme.  
@@ -666,6 +681,8 @@ Beginning with the prose form of the name:
 &nbsp;&nbsp;\*... each word except the first, to yield lower camel case  
 4..Finally, join all the words into a single identifier.  
 Note that the casing of the original words is almost entirely disregarded. Examples:  
+
+
 
 Prose form | Correct | Incorrect
 -|-|-
