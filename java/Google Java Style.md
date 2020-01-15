@@ -651,7 +651,11 @@ Note that the casing of the original words is almost entirely disregarded. Examp
 
 Prose form | Correct | Incorrect
 -|-|-
-1|2|3  
+"XML HTTP request"|XmlHttpRequest|XMLHTTPRequest
+"new customer ID"|newCustomerId|newCustomerID
+"inner stopwatch"|innerStopwatch|innerStopWatch
+"supports IPv6 on iOS?"|supportsIpv6OnIos|supportsIPv6OnIOS
+"YouTube importer"|YouTubeImporter &nbsp; YoutubeImporter*|
 
 
 >\*Acceptable, but not recommended.  
