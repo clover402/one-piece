@@ -587,20 +587,35 @@ In Google Style, special prefixes or suffixes are not used. For example, these n
 ### 5.2.1 Package names
 >Package names are all lowercase, with consecutive words simply concatenated together (no underscores). For example, com.example.deepspace, not com.example.deepSpace or com.example.deep_space.
 
+包名都是小写，使用连续得单词简单得连接在一起(不要下划线)。例如, com.example.deepspace, 而不是 com.example.deepSpace 或 com.example.deep_space. 
+
 ### 5.2.2 Class names
 >Class names are written in UpperCamelCase.  
 Class names are typically nouns or noun phrases. For example, Character or ImmutableList. Interface names may also be nouns or noun phrases (for example, List), but may sometimes be adjectives or adjective phrases instead (for example, Readable).  
 There are no specific rules or even well-established conventions for naming annotation types.  
 Test classes are named starting with the name of the class they are testing, and ending with Test. For example, HashTest or HashIntegrationTest.
 
+类名使用大驼峰。  
+类名一般来说时名称或者名称短语。例如， Character , ImmutableList。接口名也是名词或名词短语（例如， List），但可能有时候时形容词或者副词短语（例如，Readable）。  
+对于命名注解类型没有特别得规则甚至是固定的惯例。  
+测试类以他们测试的类的名字为开头，以Test结尾。例如，HashTest 或 HashIntegrationTest。
+
 ### 5.2.3 Method names
 >Method names are written in lowerCamelCase.  
 Method names are typically verbs or verb phrases. For example, sendMessage or stop.  
 Underscores may appear in JUnit test method names to separate logical components of the name, with each component written in lowerCamelCase. One typical pattern is <methodUnderTest>_<state>, for example pop_emptyStack. There is no One Correct Way to name test methods.
+
+方法名使用小驼峰。  
+方法名一般是动词或者动词短语。例如，sendMessage 或 stop。  
+下划线可以出现在单元测试的方法名中，为了分隔名字的逻辑组件，每个组件都用小驼峰。一个一般的样式是<methodUnderTest>_<state>，例如 pop_emptyStack。没有一个“精确的方法”去命名测试方法。 
   
+
 ### 5.2.4 Constant names
 >Constant names use CONSTANT_CASE: all uppercase letters, with each word separated from the next by a single underscore. But what is a constant, exactly?  
 Constants are static final fields whose contents are deeply immutable and whose methods have no detectable side effects. This includes primitives, Strings, immutable types, and immutable collections of immutable types. If any of the instance's observable state can change, it is not a constant. Merely intending to never mutate the object is not enough. Examples:  
+
+常量名使用常量样式（CONSTANT_CASE）：所有的字母大写，每个单词使用一个下划线与下一个分隔。但是准确来说什么是常量呢？   
+常量是静态的final字段，他们的内容是不能变的，他们的方法没有可察觉的副作用。这个包括
 
 ```java
 // Constants
