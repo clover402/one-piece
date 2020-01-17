@@ -746,6 +746,8 @@ try {
 ## 6.3 Static members: qualified using class
 >When a reference to a static class member must be qualified, it is qualified with that class's name, not with a reference or expression of that class's type.
 
+当一个到静态类成员的引用必须要有描述，它需要用类的名字来描述，而不是类类型的引用或者表达式。
+
 ```java
 Foo aFoo = ...;
 Foo.aStaticMethod(); // good
@@ -757,11 +759,15 @@ somethingThatYieldsAFoo().aStaticMethod(); // very bad
 >It is extremely rare to override Object.finalize.  
 Tip: Don't do it. If you absolutely must, first read and understand Effective Java Item 7, "Avoid Finalizers," very carefully, and then don't do it.  
 
+去重写Object的finalize方法是极其罕见的。  
+**提示：** 不要做这件事。如果你必须要做，请先仔细的读下并理解Effective Java的第7条,"Avoid Finalizers", 然后不要做。
 
 # 7 Javadoc
 ## 7.1 Formatting
 ### 7.1.1 General form
 >The basic formatting of Javadoc blocks is as seen in this example:
+
+下面例子中看到的最基本的Javadoc块格式化
 
 ```java
 /**
@@ -773,11 +779,15 @@ public int method(String p1) { ... }
 
 >... or in this single-line example:
 
+或者是这种单行的例子：
+
 ```java
 /** An especially short bit of Javadoc. */
 ```
 
 >The basic form is always acceptable. The single-line form may be substituted when the entirety of the Javadoc block (including comment markers) can fit on a single line. Note that this only applies when there are no block tags such as @return.
+
+
 
 ### 7.1.2 Paragraphs
 >One blank line—that is, a line containing only the aligned leading asterisk (*)—appears between paragraphs, and before the group of block tags if present. Each paragraph but the first has <p> immediately before the first word, with no space after.
