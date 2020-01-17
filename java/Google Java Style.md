@@ -803,6 +803,9 @@ public int method(String p1) { ... }
 >Each Javadoc block begins with a brief summary fragment. This fragment is very important: it is the only part of the text that appears in certain contexts such as class and method indexes.  
 This is a fragment—a noun phrase or verb phrase, not a complete sentence. It does not begin with A {@code Foo} is a..., or This method returns..., nor does it form a complete imperative sentence like Save the record.. However, the fragment is capitalized and punctuated as if it were a complete sentence.
 
+每个javadoc都以一个简短的总结片段开头。这个片段非常重要：它是出现在某些上下文（例如类和方法的索引）文本的唯一部分。  
+
+
 >Tip: A common mistake is to write simple Javadoc in the form /** @return the customer ID */. This is incorrect, and should be changed to /** Returns the customer ID. */.  
 
 ## 7.3 Where Javadoc is used
