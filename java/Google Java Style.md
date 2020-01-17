@@ -713,9 +713,14 @@ Note: Some words are ambiguously hyphenated in the English language: for example
 >A method is marked with the @Override annotation whenever it is legal. This includes a class method overriding a superclass method, a class method implementing an interface method, and an interface method respecifying a superinterface method.  
 Exception: @Override may be omitted when the parent method is @Deprecated.
 
+一个使用@Override标记的方法无论何时它都是合法的。这包含一个类方法重写了一个父类放，一个类方法实现了一个接口方法，和一个接口方法重写指定一个父接口方法。
+
 ## 6.2 Caught exceptions: not ignored
 >Except as noted below, it is very rarely correct to do nothing in response to a caught exception. (Typical responses are to log it, or if it is considered "impossible", rethrow it as an AssertionError.)  
 When it truly is appropriate to take no action whatsoever in a catch block, the reason this is justified is explained in a comment.
+
+除了下面说的， 对于一个捕捉到的异常什么也不做很少的是对的。（典型的响应方式是把它记录到日志，或者它被看作不可能，重写抛出一个AssertionError）  
+当在一个catch语句块中不采取任何行动是合适的时候，判定的理由要在注释里说明。
 
 ```java
 try {
@@ -727,6 +732,8 @@ try {
 return handleTextResponse(response);
 ```
 >Exception: In tests, a caught exception may be ignored without comment if its name is or begins with expected. The following is a very common idiom for ensuring that the code under test does throw an exception of the expected type, so a comment is unnecessary here.
+
+例外：在测试中，一个捕获的异常可能被忽略，没有注释，如果它的名字是expected或者以expected开头。下面是一个常见的习惯
 
 ```java
 try {
