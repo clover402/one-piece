@@ -684,7 +684,14 @@ Note that the casing of the original words is almost entirely disregarded. Examp
 
 有时候有超过一种的合理方式去转换英文短语为驼峰形式，比如当存在首字母缩略词或者像IPv6或者iOS这类不平常的结构时。为了增加可预计性，谷歌风格定义了如下的固定机制.  
 以副词开始的名字：  
-1. 
+1. 将短语转化为ASCII并去掉所有格符号（撇号、省略号等）。例如，"Müller's algorithm" 变成 "Muellers algorithm".
+2. 将结果分成一个个单词，用空格和任意标点符号（一般是连字符）分隔  
+* 推荐：如果任意单词已经有了一个惯例的驼峰用法，把这个分成它的组成部分（例如，“AdWords” 变成 “ad words”）.注意，像“iOS”这样的单词并不是真正意义上的驼峰；它违反了惯例，所以此建议对它不适用。  
+3. 现在都是小写的了（包括首字母缩写），然后将如下的第一个字符转化为大写：  
+* 每个单词，去产生大驼峰，或者
+* 除了第一个的每个单词，去产生小驼峰  
+4. 最终，将所有的单词合成一个标识符。  
+注意这些原始单词已经几乎完全的改变了。例如：
 
 Prose form | Correct | Incorrect
 -|-|-
@@ -697,6 +704,9 @@ Prose form | Correct | Incorrect
 
 >\*Acceptable, but not recommended.  
 Note: Some words are ambiguously hyphenated in the English language: for example "nonempty" and "non-empty" are both correct, so the method names checkNonempty and checkNonEmpty are likewise both correct.
+
+* 可以接受但不推荐。  
+说明：在英语中有些单词是摸棱两可的连接：例如 “nonempty” 和 “noo-empty” 都是对的， 所以方法名 checkNonempty 和 checkNonEmpty 同样都是对的。
 
 # 6 Programming Practices
 ## 6.1 @Override: always used
