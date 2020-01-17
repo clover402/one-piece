@@ -814,16 +814,29 @@ This is a fragment—a noun phrase or verb phrase, not a complete sentence. It d
 >At the minimum, Javadoc is present for every public class, and every public or protected member of such a class, with a few exceptions noted below.  
 Additional Javadoc content may also be present, as explained in Section 7.3.4, Non-required Javadoc.
 
+最小限度的，javadoc会出现在每个公共类，每个类的public或protected成员，但下面有些例外。  
+额外的javadoc内容也许也会有，就像7.3.4节（不需要的Javadoc）说的那样。
+
 ### 7.3.1 Exception: self-explanatory methods
 >Javadoc is optional for "simple, obvious" methods like getFoo, in cases where there really and truly is nothing else worthwhile to say but "Returns the foo".  
 **Important:** it is not appropriate to cite this exception to justify omitting relevant information that a typical reader might need to know. For example, for a method named getCanonicalName, don't omit its documentation (with the rationale that it would say only /** Returns the canonical name. */) if a typical reader may have no idea what the term "canonical name" means!
 
+javadoc是可选的对于简单明显的方法，比如getFoo, 这种情况下真的没有别的有价值的内容要说，除了“Returns the foo”。  
+**重要**：引用这个例外去验证忽略一般的读者可能需要的重要的信息是不合适的。例如，对于一个叫getCanonicalName的方法，不要忽略他的文档（按基本原理来说它只会有 /\*\* Return the canonical name \*/） ，如果一个一般的读者并不知道“canonical name”是什么意思。
+
 ### 7.3.2 Exception: overrides
 >Javadoc is not always present on a method that overrides a supertype method.
+
+对于重写父类方法的方法javadoc不会一直有。
 
 ### 7.3.3 Non-required Javadoc
 >Other classes and members have Javadoc as needed or desired.  
 Whenever an implementation comment would be used to define the overall purpose or behavior of a class or member, that comment is written as Javadoc instead (using /\*\*).  
 Non-required Javadoc is not strictly required to follow the formatting rules of Sections 7.1.2, 7.1.3, and 7.2, though it is of course recommended.  
+
+其它类和成员也有拥有javadoc的需要或需求。  
+无论什么时候一个实现注释会用来定义一个类或者成员的目的和行为， 那个注释被写做Javadoc（使用/\*\*）。  
+非必要javadoc不是严格的要遵循7.1.2节、7.1.3节和7.2节的格式化要求， 但是当然它还是推荐的。
+
 
 
