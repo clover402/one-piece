@@ -787,11 +787,38 @@ public int method(String p1) { ... }
 
 >The basic form is always acceptable. The single-line form may be substituted when the entirety of the Javadoc block (including comment markers) can fit on a single line. Note that this only applies when there are no block tags such as @return.
 
-
+基本形式一直都是可以接受的。单行模式只有当整个javadoc块（包含注释标记）适合合成一行时才合适。注意这只对没有像@return这样的block标记时才适用。
 
 ### 7.1.2 Paragraphs
 >One blank line—that is, a line containing only the aligned leading asterisk (*)—appears between paragraphs, and before the group of block tags if present. Each paragraph but the first has <p> immediately before the first word, with no space after.
   
+一个空行是，在段落之间出现的仅仅包含对齐的\*开头的一行，而且是在那组tags（如果有的话）之前。每个而不是第一个段落在第一个单词之前都有一个不带空格的<p>  
+  
 ### 7.1.3 Block tags
 >Any of the standard "block tags" that are used appear in the order @param, @return, @throws, @deprecated, and these four types never appear with an empty description. When a block tag doesn't fit on a single line, continuation lines are indented four (or more) spaces from the position of the @.
+
+任何一个标准的“tags”块以如下顺序出现 @param, @return, @throws, @deprecated, 而且这四个类不能和一个空描述一同出现。一个tag块不适用单行，连续行对于@的位置会有4个空格的缩进。
+
+## 7.2 The summary fragment
+>Each Javadoc block begins with a brief summary fragment. This fragment is very important: it is the only part of the text that appears in certain contexts such as class and method indexes.  
+This is a fragment—a noun phrase or verb phrase, not a complete sentence. It does not begin with A {@code Foo} is a..., or This method returns..., nor does it form a complete imperative sentence like Save the record.. However, the fragment is capitalized and punctuated as if it were a complete sentence.
+
+>Tip: A common mistake is to write simple Javadoc in the form /** @return the customer ID */. This is incorrect, and should be changed to /** Returns the customer ID. */.  
+
+## 7.3 Where Javadoc is used
+>At the minimum, Javadoc is present for every public class, and every public or protected member of such a class, with a few exceptions noted below.  
+Additional Javadoc content may also be present, as explained in Section 7.3.4, Non-required Javadoc.
+
+### 7.3.1 Exception: self-explanatory methods
+>Javadoc is optional for "simple, obvious" methods like getFoo, in cases where there really and truly is nothing else worthwhile to say but "Returns the foo".  
+**Important:** it is not appropriate to cite this exception to justify omitting relevant information that a typical reader might need to know. For example, for a method named getCanonicalName, don't omit its documentation (with the rationale that it would say only /** Returns the canonical name. */) if a typical reader may have no idea what the term "canonical name" means!
+
+### 7.3.2 Exception: overrides
+>Javadoc is not always present on a method that overrides a supertype method.
+
+### 7.3.3 Non-required Javadoc
+>Other classes and members have Javadoc as needed or desired.  
+Whenever an implementation comment would be used to define the overall purpose or behavior of a class or member, that comment is written as Javadoc instead (using /\*\*).  
+Non-required Javadoc is not strictly required to follow the formatting rules of Sections 7.1.2, 7.1.3, and 7.2, though it is of course recommended.  
+
 
