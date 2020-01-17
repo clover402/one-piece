@@ -682,7 +682,9 @@ Beginning with the prose form of the name:
 4..Finally, join all the words into a single identifier.  
 Note that the casing of the original words is almost entirely disregarded. Examples:  
 
-
+有时候有超过一种的合理方式去转换英文短语为驼峰形式，比如当存在首字母缩略词或者像IPv6或者iOS这类不平常的结构时。为了增加可预计性，谷歌风格定义了如下的固定机制.  
+以副词开始的名字：  
+1. 
 
 Prose form | Correct | Incorrect
 -|-|-
