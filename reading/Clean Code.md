@@ -138,5 +138,10 @@ FUNCTIONS SHOULD DO ONE THING.THEY SHOULD DO IT WELL.THEY SHOULD DO IT ONLY.
 不要害怕花时间在起名字上。起名字时使用同样的短语、名字和动词。
 
 ## Function Arguments
+理想的参数数量是0个，然后依次是1个，2个。如果可能的话三个参数的情况要避免。超过3个参数的情况就要严格的审视。  
+参数会增加使用者的难度，也会增加测试者的难度。  
+输出参数比输入参数更难理解，我们一般习惯于通过返回值来输出。  
+
+## Common Mondadic Forms
 
 
