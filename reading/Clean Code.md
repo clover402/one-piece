@@ -128,4 +128,15 @@ FUNCTIONS SHOULD DO ONE THING.THEY SHOULD DO IT WELL.THEY SHOULD DO IT ONLY.
 每个函数要使用同一水平的抽象  
 
 ## Reading Code from Top to Bottom: The Stepdown Rule
+自顶向下，由粗到细的拆解
+
+## Switch Statements
+避免switch语句的重复。可以使用多态来隐藏实现逻辑，将实现逻辑都封装到各个子类中。
+
+## Use Descriptive Names
+使用可描述性的名字。函数越小越专注，那么它就越容易去起一个描述性的名字。不要害怕起长名字。长名字好于长注释。  
+不要害怕花时间在起名字上。起名字时使用同样的短语、名字和动词。
+
+## Function Arguments
+
 
