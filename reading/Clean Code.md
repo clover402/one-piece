@@ -142,6 +142,6 @@ FUNCTIONS SHOULD DO ONE THING.THEY SHOULD DO IT WELL.THEY SHOULD DO IT ONLY.
 参数会增加使用者的难度，也会增加测试者的难度。  
 输出参数比输入参数更难理解，我们一般习惯于通过返回值来输出。  
 
-## Common Mondadic Forms
+## Common Mondadic(单一) Forms
 
 
