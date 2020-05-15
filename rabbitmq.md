@@ -13,4 +13,4 @@
 * path -> 增加sbin目录（eg:%RABBITMQ_SERVER%\sbin)  
 3. 启动管理界面：cmd-> rabbitmq-plugins enable rabbitmq_management  
 4. 启动服务：rabbitmq-server
-5. 测试：本地浏览器打开http://127.0.0.1:15672, 然后用guest/guest可登录
+5. 测试：本地浏览器打开http://127.0.0.1:15672, 然后用guest/guest可登录。rabbitmqctl status可以查看服务状态
