@@ -10,15 +10,15 @@ pscp --help
 3. 如果用的是ssh密钥的方式连接，可用-i加上密钥地址连接，不过要注意，如果密钥
 格式不是putty的格式会报错
 ```
-Unable to use key file "C:\Users\yliu.abcft\.ssh\id_rsa" (OpenSSH SSH-2 private key (old PEM format))
+Unable to use key file "C:\Users\$username\.ssh\id_rsa" (OpenSSH SSH-2 private key (old PEM format))
 Fatal: Disconnected: No supported authentication methods available (server sent: publickey,gssapi-keyex,gssapi-with-mic)
 ```
 可用下载puttygen导入密钥转换为putty格式
 
 4. 命令示例
 ```
-pscp -C -P 9527  -i C:\Users\yliu.abcft\.ssh\putty-private.ppk yliu@120.26.90.111:/home/yliu/service-filing-1.0.0.jar  E:\Download
+pscp -C -P 9527  -i C:\Users\$username\.ssh\putty-private.ppk username@host:/home/username/service-filing-1.0.0.jar  E:\Download
 ```
 ```
-pscp -C -P 9527  -i C:\Users\yliu.abcft\.ssh\putty-private.ppk   E:\work\kettle-transformation\mysql-connector-java-5.1.44.jar yliu@120.26.90.111:/home/yliu/
+pscp -C -P 9527  -i C:\Users\$username\.ssh\putty-private.ppk   E:\work\kettle-transformation\mysql-connector-java-5.1.44.jar username@host:/home/username/
 ```
