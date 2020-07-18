@@ -143,5 +143,10 @@ FUNCTIONS SHOULD DO ONE THING.THEY SHOULD DO IT WELL.THEY SHOULD DO IT ONLY.
 输出参数比输入参数更难理解，我们一般习惯于通过返回值来输出。  
 
 ## Common Mondadic(单一) Forms
+单参数函数有两种常见的理由:  
+1. 询问一个关于参数的问题
+2. 对这个参数进行操作，转换成别的什么，然后返回它  
 
+你要选择能清晰区别这两种的名字  
+还有一种不通用但是很有用的单参数函数：事件
 
