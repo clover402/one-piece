@@ -114,5 +114,7 @@ git log
 git status
 git remote 查看远程库
 git remote -v 查看
+git tag -l "v3.3.*" //查看tag并过滤
+git tag v1.0 //在当前分支的当前commit创建一个tag
 ```
 

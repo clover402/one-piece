@@ -192,3 +192,8 @@ curl -b XDEBUG_SESSION=sublime.xdebug -X POST -d 'a1=xxx&a2=xxx' -m 300 url_to_d
 * **鼠标中键** 鼠标滚轮也可以选中字符，但不同用鼠标左键选择的是，他不会跨行选择，而是直接矩形选择。
 * **Ctrl+K+B** 关闭开启左侧文件浏览区
 * **Ctrl+shift+T** 恢复已关闭的标签
+
+### 手动安装插件
+1. 进入目录{D:\ProgramFiles\Sublime Text 3}\Data\Packages,括号中为sublime安装目录
+2. 下载安装包并解压到上面目录，或者直接git clone到上面路径即可
+3. 重启sublime
