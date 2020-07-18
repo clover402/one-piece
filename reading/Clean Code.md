@@ -144,9 +144,14 @@ FUNCTIONS SHOULD DO ONE THING.THEY SHOULD DO IT WELL.THEY SHOULD DO IT ONLY.
 
 ## Common Mondadic(单一) Forms
 单参数函数有两种常见的理由:  
-1. 询问一个关于参数的问题
-2. 对这个参数进行操作，转换成别的什么，然后返回它  
+1. 询问一个关于参数的问题：boolean fileExists("MyFile")
+2. 对这个参数进行操作，转换成别的什么，然后返回它: InputStream fileOpen("MyFile")  
 
 你要选择能清晰区别这两种的名字  
-还有一种不通用但是很有用的单参数函数：事件
+还有一种不通用但是很有用的单参数函数：事件。有一个参数但是没有返回值: void passwordAttemptFailedNtimes(int attempts)  
+一定要遵循上面这几种函数形式，不要混用  
+
+## Flag Arguments
+
+
 
