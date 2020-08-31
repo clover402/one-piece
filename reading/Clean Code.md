@@ -142,7 +142,7 @@ FUNCTIONS SHOULD DO ONE THING.THEY SHOULD DO IT WELL.THEY SHOULD DO IT ONLY.
 参数会增加使用者的难度，也会增加测试者的难度。  
 输出参数比输入参数更难理解，我们一般习惯于通过返回值来输出。  
 
-## Common Mondadic(单一) Forms
+## Common Monadic(单值) Forms
 单参数函数有两种常见的理由:  
 1. 询问一个关于参数的问题：boolean fileExists("MyFile")
 2. 对这个参数进行操作，转换成别的什么，然后返回它: InputStream fileOpen("MyFile")  
@@ -152,6 +152,48 @@ FUNCTIONS SHOULD DO ONE THING.THEY SHOULD DO IT WELL.THEY SHOULD DO IT ONLY.
 一定要遵循上面这几种函数形式，不要混用  
 
 ## Flag Arguments
+flag参数很丑陋。它意味着函数肯定做了至少两件事。建议把它拆分成2个函数。
 
+## Dyadic(双值) Functions
+双值函数不可避免，但是你应该尽可能把他们转换为单值函数。  
+比如writeField(output-Stream, name)就有两种方式变成单值函数:  
+1. 把writeField(name)方法作为output-Stream的成员方法
+2. 创建一个新类，把output-Stream作为成员变量，writeField(name)作为成员方法
+
+## Triads(三值)
+三参数函数十分难懂。在创建三值函数时一定要三思而后行。  
+例如：可以考虑重载assertEquals(message, expected, actual)函数
+
+## Argument Objects
+可以通过创建对象来减少参数，合理得对象创建可以让你更好理解
+
+## Argument Lists
+有时我们需要传一个数量可变得参数到函数。
+如果那些可变得参数时等同的，我们可以考虑如下方式：
+```
+    public String format(String format, Object... args)
+```
+
+## Verbs and Keywords
+选择一个好的函数名字十分有利于解释函数的意图和参数的顺序与意义。  
+单参数函数可以使用动词/名词对：writeField(name)  
+在函数名中使用关键词有时候也是一个好主意  
+比如把参数名放到函数名中：assertExpectedEqualsAcutal(expected, actual)  
+这样就解决了参数顺序混淆的问题
+
+## Have No Side Effects
+副作用是谎言，函数承诺做一件事，但是它还做了别的隐藏的事情。有时候它还会带来非期望的变化。
+
+## Output Arguments
+除非必要，一般而言输出参数要避免
+```java
+appendFooter(s)    //bad
+report.addpendFooter()   //good
+```
+
+## Command Query Separation
+函数要么做什么事情，要么回答什么问题，而不是两者都有。要么你的函数改变了对象的状态，要么返回了对象的什么信息。  
+
+## Prfer Exceptions to Returning Error Codes
 
 
