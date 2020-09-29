@@ -104,3 +104,9 @@ remove的简化版，不做边界检查，不返回被删除元素
 
 ### sort(Comparator<? super E> c)
 通过排序函数（实现了compare(E o1, E o2)方法的类）对数组元素进行排序，调用Arrays.sort
+
+### equals(Object o)
+判断list的每个数组元素是否equals，继承自AbstractList父类
+
+### stream()
+返回一个数据流，继承自Collection接口
