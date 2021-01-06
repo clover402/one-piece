@@ -105,7 +105,18 @@ denyCurrentBranch = ignore
 并执行git config --bool core.bare true
 
 
+### 推送仓库到新的仓库
+``` 
+git push --mirror new_repository_url
+```
 
+### gitignore无效问题
+```
+git rm -r --cached .
+git add .
+git commit -m 'update .gitignore'
+git push -u origin master
+```
 
 ### 常用命令
 ```
