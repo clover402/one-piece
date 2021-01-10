@@ -118,6 +118,11 @@ git commit -m 'update .gitignore'
 git push -u origin master
 ```
 
+### 删除无用分支
+```
+git remote prune origin
+```
+
 ### 常用命令
 ```
 git config --list 查看配置
